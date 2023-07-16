@@ -6,6 +6,7 @@ let python = document.getElementById("Python")
 let JavaScript = document.getElementById("JavaScript")
 let cSharp = document.getElementById("C#") 
 let C = document.getElementById("C++")
+let body = document.querySelector("body")
 
 var total = 4
 var count = 0
@@ -46,7 +47,7 @@ C.addEventListener("load", ()=>{
 })
 
 window.addEventListener("load", ()=>{
-    
+    setTimeout(()=>{body.style.backgroundColor = "black"; picture.style.opacity = 0}, 2000)
 })
 
 let python_p = document.getElementById("python_p")
