@@ -1,0 +1,197 @@
+@font-face {
+    font-family: "Chakra";
+    src: url("ChakraPetch-BoldItalic.ttf");
+}
+
+*{
+    font-family: "Chakra";
+}
+
+body{
+    background-color: rgb(0, 255, 255);
+}
+
+main{
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+}
+
+picture{
+    display: flex;
+    position: relative;
+    height: 12vh;
+    width: 44vw;
+    justify-content: center;
+    align-items: center;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform .2s ease;
+    z-index: 0;
+}
+
+picture::before{
+    content: "";
+    position: absolute;
+    height: .5vh;
+    width: 6vw;
+    background-color: rgb(0, 0, 0);
+    top: -5%;
+    left: 4.7%;
+}
+
+picture::after{
+    content: "";
+    position: absolute;
+    height: .5vh;
+    width: .5vw;
+    background-color: rgb(0, 0, 0);
+    top: -5%;
+    left: 3%;
+}
+
+#bordeSuperior{
+    display: flex;
+    position: relative;
+    height: .5vh;
+    width: 33vw;
+    background-color: rgb(0, 141, 141);
+    top: -53%;
+    left: 7.5%;
+}
+
+#bordeSuperior::before{
+    content: "";
+    position: relative;
+    height: .5vh;
+    width: .2vw;
+    background-color: rgb(0, 0, 0);
+    left: 100.5%;
+}
+
+#bordeSuperior::after{
+    content: "";
+    position: relative;
+    height: .5vh;
+    width: .5vw;
+    background-color: rgb(0, 0, 0);
+    left: 102%;
+}
+
+#bordeInferior{
+    display: flex;
+    position: absolute;
+}
+
+#bordesLaterales{
+    display: flex;
+    position: absolute;
+    width: 41vw;
+    height: 11.5vh;
+    top: -12%;
+    border-left: .5vh solid rgb(0, 141, 141);
+    border-right: .5vh solid rgb(0, 141, 141);
+}
+
+#bordeInferior{
+    display: flex;
+    position: absolute;
+    height: 11vh;
+    width: 40vw;
+    bottom: -23%;
+    border-bottom: .5vh solid rgb(0, 141, 141);
+}
+
+progress{
+    display: flex;
+    position: absolute;
+    height: 10vh;
+    width: 40vw;
+    background-color: rgb(0, 141, 141);
+}
+
+progress::-webkit-progress-value{
+    height: 10vh;
+    background-color: rgb(255, 0, 0);
+    transition: all 1s cubic-bezier(0.85, 0.01, 0.18, 0.98);
+}
+
+output{
+    position: absolute;
+    font-size: 4vh;
+    bottom: 15%;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+picture p{
+    position: absolute;
+    font-size: 2.5vh;
+    top: -8%;
+    opacity: 0;
+    transform: scale(.8);
+    transition-property: transform opacity;
+    transition:  .5s ease;
+}
+
+section{
+    display: flex;
+    position: absolute;
+    left: 15%;
+    height: 100vh;
+    width: 140vw;
+    justify-content: space-around;
+    align-items: baseline;
+    flex-direction: row;
+    z-index: 10;
+}
+
+section img{
+    height: 50vh;
+    width: 40vh;
+    background-color: rgb(0, 0, 0);
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 80% 100%, 0 100%);
+    z-index: 12;
+}
+
+section div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 11;
+}
+
+span{
+    display: flex;
+    position: absolute;
+    height: 55vh;
+    width: 45vh;
+    min-width: 300px;
+    background-color: rgb(1, 179, 255);
+    transition: clip-path .1s ease;
+    clip-path: polygon(5% 4%, 95% 4%, 95% 82%, 77% 96%, 5% 96%, 5% 94%, 5% 94%, 5% 20%);
+}
+
+section div:hover span{
+    clip-path: polygon(5% 4%, 100% 4%, 100% 78%, 77% 96%, 5% 96%, 3% 94%, 3% 20%, 5% 18%);
+}
+
+section p{
+    position: absolute;
+    width: 40vh;
+    font-size: 2vh;
+    color: rgb(1, 179, 255);   
+    top: 55%;
+}
+
+.opacidad{
+    animation: opacidad .8s infinite;
+}
+
+@keyframes opacidad {
+    0%{opacity: 0;}
+    50%{opacity: 1;}
+    100%{opacity: 0;}
+}
