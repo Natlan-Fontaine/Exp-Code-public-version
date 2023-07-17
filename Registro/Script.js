@@ -168,47 +168,43 @@ function javascriptClick(){
 }
 function javascriptClickInClick(){
     javascriptDiv.style.transform = "scale(1)"
-    javascriptDiv.style.top = "-20%"
-    javascriptDiv.style.left = "-15%"
-    javascriptSpan.style.height = "170vh"
-    javascriptSpan.style.width = "190vw"
-    JavaScript.style.height = "130vh"
-    JavaScript.style.width = "100vh"
-    JavaScript.style.top = "20%"
-    JavaScript.style.left = "0"
-    javascriptObject.style.width = "190vw"
-    javascriptObject.style.height = "150vh"
-    pythonSpan.style.height = "55vh"
-    pythonSpan.style.width = "45vh"
-    python.style.width = "40vh"
-    python.style.height = "50vh"
-    python.style.inset = "0 0"
-    pythonObject.style.height = "50vh"
-    pythonObject.style.width = "40vh"
+    javascriptSpan.style.height = "1500px"
+    javascriptSpan.style.width = "2500px"
+    JavaScript.style.height = "1053px"
+    JavaScript.style.width = "1053px"
+    JavaScript.style.transform = "translate(-45%, -25%)"
+    javascriptObject.style.width = "2080px"
+    javascriptObject.style.height = "1800px"
+    pythonSpan.style.height = "396px"
+    pythonSpan.style.width = "324px"
+    python.style.width = "288px"
+    python.style.height = "360px"
+    python.style.inset = "0% 0%"
+    pythonObject.style.height = "360px"
+    pythonObject.style.width = "288px"
     pythonDiv.style.zIndex = "40"
-    pythonDiv.style.top = "40%"
-    pythonDiv.style.left = "30.5%"
+    pythonDiv.style.top = "39%"
+    pythonDiv.style.left = "30%"
     pythonDiv.style.transform = "scale(.3)"
 }
 
 pythonDiv.addEventListener("click", ()=>{
     pythonDiv.style.transform = "scale(1)"
-    pythonSpan.style.height = "170vh"
-    pythonSpan.style.width = "190vw"
-    python.style.height = "130vh"
-    python.style.width = "100vh"
-    python.style.top = "20%"
-    python.style.left = "12%"
+    pythonSpan.style.height = "1500px"
+    pythonSpan.style.width = "2500px"
+    python.style.height = "1053px"
+    python.style.width = "1053px"
+    python.style.inset = "15vw 35vh"
     window.scrollTo({left: "0", behavior: "smooth"})
     body.style.overflowX = "hidden"
-    pythonObject.style.width = "190vw"
-    pythonObject.style.height = "150vh"
-    javascriptDiv.style.top = "40%"
-    javascriptDiv.style.left = "-10%"
+    pythonObject.style.width = "2080px"
+    pythonObject.style.height = "1800px"
+    javascriptDiv.style.top = "39%"
+    javascriptDiv.style.left = "5%"
     javascriptDiv.style.transform = "scale(.3)"
-    setTimeout(()=>{cDiv.style.top = "40%"; cDiv.style.left = "-25%"; cDiv.style.transform = "scale(.3)"}, 50)
-    setTimeout(()=>{cSharpDiv.style.top = "40%"; 
-    cSharpDiv.style.left = "-40%"; 
+    setTimeout(()=>{cDiv.style.top = "39%"; cDiv.style.left = "-15%"; cDiv.style.transform = "scale(.3)"}, 50)
+    setTimeout(()=>{cSharpDiv.style.top = "39%"; 
+    cSharpDiv.style.left = "-35%"; 
     cSharpDiv.style.transform = "scale(.3)"}, 100)
     javascriptDiv.removeEventListener("mouseover", mouseoverJavascript)
     cDiv.removeEventListener("mouseover", mouseoverC)
