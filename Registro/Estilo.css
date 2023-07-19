@@ -240,17 +240,17 @@ section p{
     100%{opacity: 0;}
 }
 
-#superPythonDiv{
+.superPythonDiv{
     display: flex;
     position: absolute;
     align-items: center;
     justify-content: center;
-    transform: translate(-68%, -38%);
-    z-index: 11;
-    transition: trasnform .8s cubic-bezier(0.46, 0.01, 0.43, 0.99);
+    transform: translate(-1%, 5%);
+    z-index: 12;
+    transition: transform 2s cubic-bezier(0.46, 0.01, 0.43, 0.99);
 }
 
-#superPythonDiv span{
+.superPythonDiv span{
     display: flex;
     position: absolute;
     height: 55vh;
@@ -261,7 +261,7 @@ section p{
     transition: 1s ease, clip-path .1s ease;
 }
 
-#superPythonDiv img{
+.superPythonDiv img{
     height: 50vh;
     width: 40vh;
     inset: 0 0;
@@ -271,7 +271,7 @@ section p{
     transition: 1s ease;
 }
 
-#superPythonDiv object{
+.superPythonDiv object{
     height: 50vh;
     width: 40vh;
     position: absolute;
@@ -282,3 +282,23 @@ section p{
     transition: 1s ease;
 }
 
+.omega {
+    transition: transform 1s ease;
+    transform: translate(-1%, 5%);
+    z-index: 10;
+}
+
+.omega span{
+    height: 155vh;
+    width: 130vw;
+}
+
+.omega object{
+    height: 144vh;
+    width: 120vw;
+}
+
+.omega img{
+    height: 110vh;
+    width: 82vh;
+}

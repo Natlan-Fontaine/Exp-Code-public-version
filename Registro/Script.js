@@ -145,54 +145,60 @@ cSharpDiv.addEventListener("mouseout", ()=>{
 
 
 function javascriptClick(){
-    javascriptDiv.style.transform = "scale(1)"
-    javascriptSpan.style.height = "170vh"
-    javascriptSpan.style.width = "190vw"
-    JavaScript.style.height = "130vh"
-    JavaScript.style.width = "100vh"
-    JavaScript.style.top = "20%"
-    JavaScript.style.left = "0"
-    window.scrollTo({left: 300, behavior: "smooth"})
-    body.style.overflowX = "hidden"
-    javascriptObject.style.width = "190vw"
-    javascriptObject.style.height = "150vh"
-    pythonDiv.style.zIndex = "40"
-    pythonDiv.style.top = "40%"
-    pythonDiv.style.left = "50%"
-    pythonDiv.style.transform = "scale(.3)"
-    setTimeout(()=>{cDiv.style.top = "40%"; cDiv.style.left = "-5.5%"; cDiv.style.transform = "scale(.3)"}, 50)
-    setTimeout(()=>{cSharpDiv.style.top = "40%"; 
-    cSharpDiv.style.left = "-20.5%"; 
-    cSharpDiv.style.transform = "scale(.3)"}, 100)
-    pythonDiv.removeEventListener("mouseover", mouseoverPython)
+    javascriptDiv.style.transition = "2s cubic-bezier(0.46, 0.01, 0.43, 0.99)"
+    javascriptDiv.style.transform = "translateY(300%)"
+    javascriptDiv.style.position = "absolute"
+
+    setTimeout(()=>{section.removeChild(javascriptDiv)
+        let fragmento0 = document.createDocumentFragment()
+    javascriptDiv = document.createElement("DIV")
+    javascriptSpan = document.createElement("SPAN")
+    javascriptObject = document.createElement("OBJECT")
+    javascript = document.createElement("IMG")
+
+    JavaScript.setAttribute("src", "JavaScript.png")
+
+    javascriptDiv.appendChild(JavaScript)
+    javascriptDiv.appendChild(javascriptObject)
+    javascriptDiv.appendChild(javascriptSpan)
+    fragmento0.appendChild(javascriptDiv)
+    main.prepend(fragmento0)
+
+    javascriptDiv.style.transform = "translateY(-300%)"
+    javascriptDiv.classList.add("superPythonDiv")
+    }, 2000)
+    setTimeout(()=>{javascriptDiv.style.transform = "translate(-1%, 0%)"}, 2120)
+
+    setTimeout(()=>{javascriptDiv.classList.add("omega")}, 4110)
+
+    window.scrollTo({left: "0", behavior: "smooth"})
+
+    pythonDiv.style.transform = "scale(.3)";
+    pythonDiv.style.inset = "35vh 35vw"
+    pythonDiv.style.margin = "6px"
+
+    setTimeout(()=>{cDiv.style.transform = "scale(.3)"; 
+    cDiv.style.inset = "35vh -4vw" 
+    cDiv.style.margin = "6px"}, 150)
+
+    setTimeout(()=>{cSharpDiv.style.transform = "scale(.3)"; cSharpDiv.style.inset = "35vh -43vw"; cSharpDiv.style.margin = "6px"}, 200)
+
+    
+    javascriptDiv.removeEventListener("mouseover", mouseoverJavascript)
     cDiv.removeEventListener("mouseover", mouseoverC)
     cSharpDiv.removeEventListener("mouseover", mouseoverCsharp)
-}
-function javascriptClickInClick(){
-    javascriptDiv.style.transform = "scale(1)"
-    javascriptSpan.style.height = "1500px"
-    javascriptSpan.style.width = "2500px"
-    JavaScript.style.height = "1053px"
-    JavaScript.style.width = "1053px"
-    JavaScript.style.transform = "translate(-45%, -25%)"
-    javascriptObject.style.width = "2080px"
-    javascriptObject.style.height = "1800px"
-    pythonSpan.style.height = "396px"
-    pythonSpan.style.width = "324px"
-    python.style.width = "288px"
-    python.style.height = "360px"
-    python.style.inset = "0% 0%"
-    pythonObject.style.height = "360px"
-    pythonObject.style.width = "288px"
-    pythonDiv.style.zIndex = "40"
-    pythonDiv.style.top = "39%"
-    pythonDiv.style.left = "30%"
-    pythonDiv.style.transform = "scale(.3)"
+    pythonDiv.removeEventListener("mouseover", mouseoverPython)
+
+    javascriptDiv.removeEventListener("click", javascriptClick)
 }
 
 pythonDiv.addEventListener("click", ()=>{
-    section.removeChild(pythonDiv)
-    let fragmento0 = document.createDocumentFragment()
+    pythonDiv.style.transition = "2s cubic-bezier(0.46, 0.01, 0.43, 0.99)"
+    pythonDiv.style.transform = "translateY(300%)"
+    pythonDiv.style.position = "absolute"
+
+    setTimeout(()=>{section.removeChild(pythonDiv)
+        let fragmento0 = document.createDocumentFragment()
     pythonDiv = document.createElement("DIV")
     pythonSpan = document.createElement("SPAN")
     pythonObject = document.createElement("OBJECT")
@@ -203,9 +209,15 @@ pythonDiv.addEventListener("click", ()=>{
     pythonDiv.appendChild(python)
     pythonDiv.appendChild(pythonObject)
     pythonDiv.appendChild(pythonSpan)
-    pythonDiv.id = "superPythonDiv"
     fragmento0.appendChild(pythonDiv)
     main.prepend(fragmento0)
+
+    pythonDiv.style.transform = "translateY(-300%)"
+    pythonDiv.classList.add("superPythonDiv")
+    }, 2000)
+    setTimeout(()=>{pythonDiv.style.transform = "translate(-1%, 3%)"}, 2120)
+
+    setTimeout(()=>{pythonDiv.classList.add("omega")}, 4110)
 
     window.scrollTo({left: "0", behavior: "smooth"})
 
@@ -215,9 +227,9 @@ pythonDiv.addEventListener("click", ()=>{
 
     setTimeout(()=>{cDiv.style.transform = "scale(.3)"; 
     cDiv.style.inset = "35vh -4vw" 
-    cDiv.style.margin = "6px"}, 50)
+    cDiv.style.margin = "6px"}, 150)
 
-    setTimeout(()=>{cSharpDiv.style.transform = "scale(.3)"; cSharpDiv.style.inset = "35vh -43vw"; cSharpDiv.style.margin = "6px"}, 100)
+    setTimeout(()=>{cSharpDiv.style.transform = "scale(.3)"; cSharpDiv.style.inset = "35vh -43vw"; cSharpDiv.style.margin = "6px"}, 200)
 
     
     javascriptDiv.removeEventListener("mouseover", mouseoverJavascript)
@@ -226,7 +238,6 @@ pythonDiv.addEventListener("click", ()=>{
     pythonDiv.removeEventListener("mouseover", mouseoverPython)
 
     javascriptDiv.removeEventListener("click", javascriptClick)
-    javascriptDiv.addEventListener("click", javascriptClickInClick)
 })
 
 javascriptDiv.addEventListener("click", javascriptClick)
