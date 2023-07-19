@@ -67,8 +67,7 @@ window.addEventListener("load", ()=>{
         setTimeout(()=>{javascriptDiv.style.transform = "scale(1)"; javascriptDiv.style.top = "-20%"}, 50)
         setTimeout(()=>{cDiv.style.transform = "scale(1)"; cDiv.style.top = "-20%"}, 100)
         setTimeout(()=>{cSharpDiv.style.transform = "scale(1)"; cSharpDiv.style.top = "-20%"}, 150)
-        setTimeout(()=>{body.style.animationName = "none"}, 2000)
-        setTimeout(()=>{body.style.animationName = "none"; window.scrollTo({left: 465})}, 2000)
+        setTimeout(()=>{body.style.animationName = "none"; window.scrollTo({left: "470"})}, 2000)
     }, 2000)
 })
 
@@ -189,10 +188,110 @@ function javascriptClick(){
     cSharpDiv.removeEventListener("mouseover", mouseoverCsharp)
     pythonDiv.removeEventListener("mouseover", mouseoverPython)
 
-    javascriptDiv.removeEventListener("click", javascriptClick)
+    pythonDiv.removeEventListener("click", pythonClick)
+    cDiv.removeEventListener("click", cClick)
+    cSharpDiv.removeEventListener("click", cSharpClick)
 }
 
-pythonDiv.addEventListener("click", ()=>{
+function cClick(){
+    cDiv.style.transition = "2s cubic-bezier(0.46, 0.01, 0.43, 0.99)"
+    cDiv.style.transform = "translateY(300%)"
+    cDiv.style.position = "absolute"
+
+    setTimeout(()=>{section.removeChild(cDiv)
+        let fragmento0 = document.createDocumentFragment()
+    cDiv = document.createElement("DIV")
+    cSpan = document.createElement("SPAN")
+    cObject = document.createElement("OBJECT")
+    C = document.createElement("IMG")
+
+    C.setAttribute("src", "C++.png")
+
+    cDiv.appendChild(C)
+    cDiv.appendChild(cObject)
+    cDiv.appendChild(cSpan)
+    fragmento0.appendChild(cDiv)
+    main.prepend(fragmento0)
+
+    cDiv.style.transform = "translateY(-300%)"
+    cDiv.classList.add("superPythonDiv")
+    }, 2000)
+    setTimeout(()=>{cDiv.style.transform = "translate(-1%, 3%)"}, 2120)
+
+    setTimeout(()=>{cDiv.classList.add("omega")}, 4110)
+
+    window.scrollTo({left: "0", behavior: "smooth"})
+
+    pythonDiv.style.transform = "scale(.3)";
+    pythonDiv.style.inset = "35vh 35vw"
+    pythonDiv.style.margin = "6px"
+
+    setTimeout(()=>{javascriptDiv.style.transform = "scale(.3)"; 
+    javascriptDiv.style.inset = "35vh -4vw" 
+    javascriptDiv.style.margin = "6px"}, 150)
+
+    setTimeout(()=>{cSharpDiv.style.transform = "scale(.3)"; cSharpDiv.style.inset = "35vh -43vw"; cSharpDiv.style.margin = "6px"}, 200)
+
+    
+    javascriptDiv.removeEventListener("mouseover", mouseoverJavascript)
+    cSharpDiv.removeEventListener("mouseover", mouseoverCsharp)
+    pythonDiv.removeEventListener("mouseover", mouseoverPython)
+
+    javascriptDiv.removeEventListener("click", javascriptClick)
+    pythonDiv.removeEventListener("click", pythonClick)
+    cSharpDiv.removeEventListener("click", cSharpClick)
+}
+
+function cSharpClick(){
+    cSharpDiv.style.transition = "2s cubic-bezier(0.46, 0.01, 0.43, 0.99)"
+    cSharpDiv.style.transform = "translateY(300%)"
+    cSharpDiv.style.position = "absolute"
+
+    setTimeout(()=>{section.removeChild(cSharpDiv)
+        let fragmento0 = document.createDocumentFragment()
+    cSharpDiv = document.createElement("DIV")
+    cSharpSpan = document.createElement("SPAN")
+    cSharpObject = document.createElement("OBJECT")
+    cSharp = document.createElement("IMG")
+
+    cSharp.setAttribute("src", "Csharp (2).png")
+
+    cSharpDiv.appendChild(cSharp)
+    cSharpDiv.appendChild(cSharpObject)
+    cSharpDiv.appendChild(cSharpSpan)
+    fragmento0.appendChild(cSharpDiv)
+    main.prepend(fragmento0)
+
+    cSharpDiv.style.transform = "translateY(-300%)"
+    cSharpDiv.classList.add("superPythonDiv")
+    }, 2000)
+    setTimeout(()=>{cSharpDiv.style.transform = "translate(-1%, 3%)"}, 2120)
+
+    setTimeout(()=>{cSharpDiv.classList.add("omega")}, 4110)
+
+    window.scrollTo({left: "0", behavior: "smooth"})
+
+    pythonDiv.style.transform = "scale(.3)";
+    pythonDiv.style.inset = "35vh 35vw"
+    pythonDiv.style.margin = "6px"
+
+    setTimeout(()=>{javascriptDiv.style.transform = "scale(.3)"; 
+    javascriptDiv.style.inset = "35vh -4vw" 
+    javascriptDiv.style.margin = "6px"}, 150)
+
+    setTimeout(()=>{cDiv.style.transform = "scale(.3)"; cDiv.style.inset = "35vh -43vw"; cDiv.style.margin = "6px"}, 200)
+
+    
+    javascriptDiv.removeEventListener("mouseover", mouseoverJavascript)
+    cDiv.removeEventListener("mouseover", mouseoverC)
+    pythonDiv.removeEventListener("mouseover", mouseoverPython)
+
+    javascriptDiv.removeEventListener("click", javascriptClick)
+    pythonDiv.removeEventListener("click", pythonClick)
+    cDiv.removeEventListener("click", cClick)
+}
+
+function pythonClick(){
     pythonDiv.style.transition = "2s cubic-bezier(0.46, 0.01, 0.43, 0.99)"
     pythonDiv.style.transform = "translateY(300%)"
     pythonDiv.style.position = "absolute"
@@ -238,6 +337,14 @@ pythonDiv.addEventListener("click", ()=>{
     pythonDiv.removeEventListener("mouseover", mouseoverPython)
 
     javascriptDiv.removeEventListener("click", javascriptClick)
-})
+    cDiv.removeEventListener("click", cClick)
+    cSharpDiv.removeEventListener("click", cSharpClick)
+}
+
+pythonDiv.addEventListener("click", pythonClick)
 
 javascriptDiv.addEventListener("click", javascriptClick)
+
+cDiv.addEventListener("click", cClick)
+
+cSharpDiv.addEventListener("click", cSharpClick)
