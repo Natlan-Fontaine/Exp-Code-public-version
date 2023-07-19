@@ -7,6 +7,8 @@ let JavaScript = document.getElementById("JavaScript")
 let cSharp = document.getElementById("C#") 
 let C = document.getElementById("C++")
 let body = document.querySelector("body")
+let section = document.querySelector("section")
+let main = document.querySelector("main")
 
 let pythonDiv = document.getElementById("pythonDiv")
 let javascriptDiv = document.getElementById("javascriptDiv")
@@ -189,23 +191,35 @@ function javascriptClickInClick(){
 }
 
 pythonDiv.addEventListener("click", ()=>{
-    pythonDiv.style.transform = "scale(1)"
-    pythonSpan.style.height = "1500px"
-    pythonSpan.style.width = "2500px"
-    python.style.height = "1053px"
-    python.style.width = "1053px"
-    python.style.inset = "15vw 35vh"
+    section.removeChild(pythonDiv)
+    let fragmento0 = document.createDocumentFragment()
+    pythonDiv = document.createElement("DIV")
+    pythonSpan = document.createElement("SPAN")
+    pythonObject = document.createElement("OBJECT")
+    python = document.createElement("IMG")
+
+    python.setAttribute("src", "Python.png")
+
+    pythonDiv.appendChild(python)
+    pythonDiv.appendChild(pythonObject)
+    pythonDiv.appendChild(pythonSpan)
+    pythonDiv.id = "superPythonDiv"
+    fragmento0.appendChild(pythonDiv)
+    main.prepend(fragmento0)
+
     window.scrollTo({left: "0", behavior: "smooth"})
-    body.style.overflowX = "hidden"
-    pythonObject.style.width = "2080px"
-    pythonObject.style.height = "1800px"
-    javascriptDiv.style.top = "39%"
-    javascriptDiv.style.left = "5%"
-    javascriptDiv.style.transform = "scale(.3)"
-    setTimeout(()=>{cDiv.style.top = "39%"; cDiv.style.left = "-15%"; cDiv.style.transform = "scale(.3)"}, 50)
-    setTimeout(()=>{cSharpDiv.style.top = "39%"; 
-    cSharpDiv.style.left = "-35%"; 
-    cSharpDiv.style.transform = "scale(.3)"}, 100)
+
+    javascriptDiv.style.transform = "scale(.3)";
+    javascriptDiv.style.inset = "35vh 35vw"
+    javascriptDiv.style.margin = "6px"
+
+    setTimeout(()=>{cDiv.style.transform = "scale(.3)"; 
+    cDiv.style.inset = "35vh -4vw" 
+    cDiv.style.margin = "6px"}, 50)
+
+    setTimeout(()=>{cSharpDiv.style.transform = "scale(.3)"; cSharpDiv.style.inset = "35vh -43vw"; cSharpDiv.style.margin = "6px"}, 100)
+
+    
     javascriptDiv.removeEventListener("mouseover", mouseoverJavascript)
     cDiv.removeEventListener("mouseover", mouseoverC)
     cSharpDiv.removeEventListener("mouseover", mouseoverCsharp)
