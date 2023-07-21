@@ -187,7 +187,18 @@ function javascriptClick(){
 }
 
 function javascriptClickInClick(){
+    javascriptDiv.style.transform = "scale(1)"
+    javascriptDiv.classList.add("omega")
+
+    setTimeout(()=>{javascriptDiv.style.position = "absolute";}, 100)
+
+    setTimeout(()=>{javascriptDiv.style.transition = ".6s cubic-bezier(0.46, 0.01, 0.43, 0.99)"; javascriptDiv.style.inset = "-3% 15%"}, 150)
     
+    pythonDiv.style.inset = "50% 0%"
+    pythonDiv.style.zIndex = "12"
+    pythonDiv.style.position = "relative"
+    pythonDiv.classList.remove("omega")
+    pythonDiv.style.transform = "scale(.3)"
 }
 
 function cClick(){
