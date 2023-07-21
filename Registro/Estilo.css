@@ -283,8 +283,7 @@ section p{
 }
 
 .omega {
-    transition: transform 1s ease;
-    transform: translate(-1%, 5%);
+    transition: inset 1s ease;
     z-index: 10;
 }
 

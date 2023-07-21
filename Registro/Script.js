@@ -156,33 +156,12 @@ cSharpDiv.addEventListener("mouseout", ()=>{
 
 function javascriptClick(){
     body.style.overflowX = "hidden"
+    javascriptDiv.classList.add("omega")
 
-    javascriptDiv.style.transition = "2s cubic-bezier(0.46, 0.01, 0.43, 0.99)"
-    javascriptDiv.style.transform = "translateY(300%)"
-    javascriptDiv.style.position = "absolute"
+    setTimeout(()=>{javascriptDiv.style.position = "absolute"; javascriptDiv.style.transition = "none";
+    javascriptDiv.style.inset = "-20% 30%"}, 100)
 
-    setTimeout(()=>{section.removeChild(javascriptDiv)
-        let fragmento0 = document.createDocumentFragment()
-    javascriptDiv = document.createElement("DIV")
-    javascriptSpan = document.createElement("SPAN")
-    javascriptObject = document.createElement("OBJECT")
-    javascript = document.createElement("IMG")
-
-    JavaScript.setAttribute("src", "JavaScript.png")
-
-    javascriptDiv.appendChild(JavaScript)
-    javascriptDiv.appendChild(javascriptObject)
-    javascriptDiv.appendChild(javascriptSpan)
-    fragmento0.appendChild(javascriptDiv)
-    main.prepend(fragmento0)
-
-    javascriptDiv.style.transform = "translateY(-300%)"
-    javascriptDiv.classList.add("superPythonDiv")
-    }, 2000)
-    setTimeout(()=>{javascriptDiv.style.transform = "translate(-1%, 0%)"}, 2120)
-
-    setTimeout(()=>{javascriptDiv.classList.add("omega")}, 4110)
-
+    setTimeout(()=>{javascriptDiv.style.transition = ".6s cubic-bezier(0.46, 0.01, 0.43, 0.99)"; javascriptDiv.style.inset = "-3% 15%"}, 150)
     window.scrollTo({left: "0", behavior: "smooth"})
 
     pythonDiv.style.transform = "scale(.3)";
@@ -204,6 +183,7 @@ function javascriptClick(){
     pythonDiv.removeEventListener("click", pythonClick)
     cDiv.removeEventListener("click", cClick)
     cSharpDiv.removeEventListener("click", cSharpClick)
+    
 }
 
 function javascriptClickInClick(){
@@ -212,32 +192,13 @@ function javascriptClickInClick(){
 
 function cClick(){
     body.style.overflowX = "hidden"
+    cDiv.classList.add("omega")
 
-    cDiv.style.transition = "2s cubic-bezier(0.46, 0.01, 0.43, 0.99)"
-    cDiv.style.transform = "translateY(300%)"
-    cDiv.style.position = "absolute"
+    setTimeout(()=>{cDiv.style.position = "absolute"; cDiv.style.transition = "none"
+    cDiv.style.inset = "-20% 60%"}, 100)
 
-    setTimeout(()=>{section.removeChild(cDiv)
-        let fragmento0 = document.createDocumentFragment()
-    cDiv = document.createElement("DIV")
-    cSpan = document.createElement("SPAN")
-    cObject = document.createElement("OBJECT")
-    C = document.createElement("IMG")
-
-    C.setAttribute("src", "C++.png")
-
-    cDiv.appendChild(C)
-    cDiv.appendChild(cObject)
-    cDiv.appendChild(cSpan)
-    fragmento0.appendChild(cDiv)
-    main.prepend(fragmento0)
-
-    cDiv.style.transform = "translateY(-300%)"
-    cDiv.classList.add("superPythonDiv")
-    }, 2000)
-    setTimeout(()=>{cDiv.style.transform = "translate(-1%, 0%)"}, 2120)
-
-    setTimeout(()=>{cDiv.classList.add("omega")}, 4110)
+    setTimeout(()=>{cDiv.style.transition = ".6s cubic-bezier(0.46, 0.01, 0.43, 0.99)";
+    cDiv.style.inset = "0% 15%"}, 150)
 
     window.scrollTo({left: "0", behavior: "smooth"})
 
@@ -263,32 +224,13 @@ function cClick(){
 
 function cSharpClick(){
     body.style.overflowX = "hidden"
+    cSharpDiv.classList.add("omega")
 
-    cSharpDiv.style.transition = "2s cubic-bezier(0.46, 0.01, 0.43, 0.99)"
-    cSharpDiv.style.transform = "translateY(300%)"
-    cSharpDiv.style.position = "absolute"
+    setTimeout(()=>{cSharpDiv.style.position = "absolute"; cSharpDiv.style.transition = "none"
+    cSharpDiv.style.inset = "-20% 70%"}, 100)
 
-    setTimeout(()=>{section.removeChild(cSharpDiv)
-        let fragmento0 = document.createDocumentFragment()
-    cSharpDiv = document.createElement("DIV")
-    cSharpSpan = document.createElement("SPAN")
-    cSharpObject = document.createElement("OBJECT")
-    cSharp = document.createElement("IMG")
-
-    cSharp.setAttribute("src", "Csharp (2).png")
-
-    cSharpDiv.appendChild(cSharp)
-    cSharpDiv.appendChild(cSharpObject)
-    cSharpDiv.appendChild(cSharpSpan)
-    fragmento0.appendChild(cSharpDiv)
-    main.prepend(fragmento0)
-
-    cSharpDiv.style.transform = "translateY(-300%)"
-    cSharpDiv.classList.add("superPythonDiv")
-    }, 2000)
-    setTimeout(()=>{cSharpDiv.style.transform = "translate(-1%, 0%)"}, 2120)
-
-    setTimeout(()=>{cSharpDiv.classList.add("omega")}, 4110)
+    setTimeout(()=>{cSharpDiv.style.transition = ".6s cubic-bezier(0.46, 0.01, 0.43, 0.99)";
+    cSharpDiv.style.inset = "0% 15%"}, 150)
 
     window.scrollTo({left: "0", behavior: "smooth"})
 
@@ -314,32 +256,9 @@ function cSharpClick(){
 
 function pythonClick(){
     body.style.overflowX = "hidden"
-
-    pythonDiv.style.transition = "2s cubic-bezier(0.46, 0.01, 0.43, 0.99)"
-    pythonDiv.style.transform = "translateY(300%)"
+    pythonDiv.style.inset = "0% 15%"
     pythonDiv.style.position = "absolute"
-
-    setTimeout(()=>{section.removeChild(pythonDiv)
-        let fragmento0 = document.createDocumentFragment()
-    pythonDiv = document.createElement("DIV")
-    pythonSpan = document.createElement("SPAN")
-    pythonObject = document.createElement("OBJECT")
-    python = document.createElement("IMG")
-
-    python.setAttribute("src", "Python.png")
-
-    pythonDiv.appendChild(python)
-    pythonDiv.appendChild(pythonObject)
-    pythonDiv.appendChild(pythonSpan)
-    fragmento0.appendChild(pythonDiv)
-    main.prepend(fragmento0)
-
-    pythonDiv.style.transform = "translateY(-300%)"
-    pythonDiv.classList.add("superPythonDiv")
-    }, 2000)
-    setTimeout(()=>{pythonDiv.style.transform = "translate(-1%, 0%)"}, 2120)
-
-    setTimeout(()=>{pythonDiv.classList.add("omega")}, 4110)
+    pythonDiv.classList.add("omega")
 
     window.scrollTo({left: "0", behavior: "smooth"})
 
@@ -362,4 +281,6 @@ function pythonClick(){
     javascriptDiv.removeEventListener("click", javascriptClick)
     cDiv.removeEventListener("click", cClick)
     cSharpDiv.removeEventListener("click", cSharpClick)
+
+    javascriptDiv.addEventListener("click", javascriptClickInClick)
 }
