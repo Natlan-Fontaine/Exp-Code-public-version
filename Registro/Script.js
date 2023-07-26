@@ -181,27 +181,32 @@ function javascriptClick(){
     cDiv.removeEventListener("click", cClick)
     cSharpDiv.removeEventListener("click", cSharpClick)
     
-    pythonDiv.addEventListener("click", ()=>{pythonClickInClick(javascriptDiv, "35vh 40vw")})
-    cDiv.addEventListener("click", ()=>{cClickInClick(javascriptDiv, "35vh 48vw")})
+    pythonDiv.addEventListener("click", ()=>{pythonClickInClick(javascriptDiv)})
+    cDiv.addEventListener("click", ()=>{cClickInClick(javascriptDiv)})
+    cSharpDiv.addEventListener("click", ()=>{cSharpClickInClick(javascriptDiv)})
 }
 
-function javascriptClickInClick(div, medidas){
+function javascriptClickInClick(div){
     javascriptDiv.style.transform = "scale(1)"
     javascriptDiv.classList.add("omega")
 
     setTimeout(()=>{javascriptDiv.style.transition = ".6s cubic-bezier(0.46, 0.01, 0.43, 0.99)"; javascriptDiv.style.inset = "-3% 15%"}, 150)
     
-    div.style.inset = medidas
     div.classList.remove("omega")
     div.style.transform = "scale(.3)"
     div.style.margin = "6px"
+
+    pythonDiv.style.inset = "35vh 40vw"
+    cDiv.style.inset = "35vh 48vw"
+    cSharpDiv.style.inset = "35vh 56vw"
 
     pythonDiv.removeEventListener("click", pythonClick)
     cDiv.removeEventListener("click", cClick)
     cSharpDiv.removeEventListener("click", cSharpClick)
 
-    pythonDiv.addEventListener("click", ()=>{pythonClickInClick(javascriptDiv, "35vh 40vw")})
-    cDiv.addEventListener("click", ()=>{cClickInClick(javascriptDiv, "35vh 48vw")})
+    pythonDiv.addEventListener("click", ()=>{pythonClickInClick(javascriptDiv)})
+    cDiv.addEventListener("click", ()=>{cClickInClick(javascriptDiv)})
+    cSharpDiv.addEventListener("click", ()=>{cSharpClickInClick(javascriptDiv)})
 }
 
 function cClick(){
@@ -232,25 +237,31 @@ function cClick(){
     cDiv.removeEventListener("click", cClick)
     cSharpDiv.removeEventListener("click", cSharpClick)
 
-    pythonDiv.addEventListener("click", ()=>{pythonClickInClick(cDiv, "35vh 40vw");}) 
+    pythonDiv.addEventListener("click", ()=>{pythonClickInClick(cDiv);}) 
+    javascriptDiv.addEventListener("click", ()=>{javascriptClickInClick(cDiv)})
+    cSharpDiv.addEventListener("click", ()=>{cSharpClickInClick(cDiv)})
 }
-function cClickInClick(div, medidas){
+function cClickInClick(div){
     cDiv.style.transform = "scale(1)"
     cDiv.classList.add("omega")
 
     setTimeout(()=>{cDiv.style.transition = ".6s cubic-bezier(0.46, 0.01, 0.43, 0.99)"; cDiv.style.inset = "-3% 15%"}, 150)
     
-    div.style.inset = medidas
     div.classList.remove("omega")
     div.style.transform = "scale(.3)"
     div.style.margin = "6px"
+
+    pythonDiv.style.inset = "35vh 40vw"
+    javascriptDiv.style.inset = "35vh 48vw"
+    cSharpDiv.style.inset = "35vh 56vw"
 
     pythonDiv.removeEventListener("click", pythonClick)
     cDiv.removeEventListener("click", cClick)
     cSharpDiv.removeEventListener("click", cSharpClick)
 
-    pythonDiv.addEventListener("click", ()=>{pythonClickInClick(cDiv, "35vh 48vw");})
-    javascriptDiv.addEventListener("click", ()=>{javascriptClickInClick(cDiv, "35vh 40vw")})
+    pythonDiv.addEventListener("click", ()=>{pythonClickInClick(cDiv);})
+    javascriptDiv.addEventListener("click", ()=>{javascriptClickInClick(cDiv)})
+    cSharpDiv.addEventListener("click", ()=>{cSharpClickInClick(cDiv)})
 }
 
 function cSharpClick(){
@@ -281,30 +292,33 @@ function cSharpClick(){
     cDiv.removeEventListener("click", cClick)
     cSharpDiv.removeEventListener("click", cSharpClick)
 
-    pythonDiv.addEventListener("click", ()=>{pythonClickInClick(cSharpDiv, "35vh 40vw")})
-    javascriptDiv.addEventListener("click", ()=>{javascriptClickInClick(cSharpDiv, "35vh 48vw")})
-    cDiv.addEventListener("click", ()=>{cClickInClick(cSharpDiv, "35vh 56vw")})
+    pythonDiv.addEventListener("click", ()=>{pythonClickInClick(cSharpDiv)})
+    javascriptDiv.addEventListener("click", ()=>{javascriptClickInClick(cSharpDiv)})
+    cDiv.addEventListener("click", ()=>{cClickInClick(cSharpDiv)})
 }
 
-function cSharpClickInClick(div, medidas){
+function cSharpClickInClick(div){
     cSharpDiv.style.transform = "scale(1)"
     cSharpDiv.classList.add("omega")
 
     setTimeout(()=>{cSharpDiv.style.transition = ".6s cubic-bezier(0.46, 0.01, 0.43, 0.99)"; cSharpDiv.style.inset = "3% 16%"}, 150)
 
-    div.style.inset = medidas
     div.classList.remove("omega")
     div.style.transform = "scale(.3)"
     div.style.margin = "6px"
+
+    javascriptDiv.style.inset = "35vh 40vw"
+    cDiv.style.inset = "35vh 48vw"
+    pythonDiv.style.inset = "35vh 56vw"
 
     pythonDiv.removeEventListener("click", pythonClick)
     cDiv.removeEventListener("click", cClick)
     cSharpDiv.removeEventListener("click", cSharpClick)
     javascriptDiv.removeEventListener("click", javascriptClick)
 
-    javascriptDiv.addEventListener("click", ()=>{javascriptClickInClick(pythonDiv, "35vh 48vw")})
-    cDiv.addEventListener("click", ()=>{cClickInClick(pythonDiv, "35vh 40vw");})
-    pythonDiv.addEventListener("click", ()=>{pythonClickInClick(cSharpDiv, "35vh 56vw")})
+    javascriptDiv.addEventListener("click", ()=>{javascriptClickInClick(cSharpDiv)})
+    cDiv.addEventListener("click", ()=>{cClickInClick(cSharpDiv);})
+    pythonDiv.addEventListener("click", ()=>{pythonClickInClick(cSharpDiv)})
 }
 function pythonClick(){
     body.style.overflowX = "hidden"
@@ -333,27 +347,31 @@ function pythonClick(){
     cDiv.removeEventListener("click", cClick)
     cSharpDiv.removeEventListener("click", cSharpClick)
 
-    javascriptDiv.addEventListener("click", ()=>{javascriptClickInClick(pythonDiv, "35vh 40vw")})
-    cDiv.addEventListener("click", ()=>{cClickInClick(pythonDiv, "35vh 48vw");})
-    cSharpDiv.addEventListener("click", ()=>{cSharpClickInClick(pythonDiv, "35vh 56vw")})
+    javascriptDiv.addEventListener("click", ()=>{javascriptClickInClick(pythonDiv)})
+    cDiv.addEventListener("click", ()=>{cClickInClick(pythonDiv);})
+    cSharpDiv.addEventListener("click", ()=>{cSharpClickInClick(pythonDiv)})
 }
 
-function pythonClickInClick(div, medidas){
+function pythonClickInClick(div){
     pythonDiv.style.transform = "scale(1)"
     pythonDiv.classList.add("omega")
 
     setTimeout(()=>{pythonDiv.style.transition = ".6s cubic-bezier(0.46, 0.01, 0.43, 0.99)"; pythonDiv.style.inset = "3% 16%"}, 150)
     
-    div.style.inset = medidas
     div.classList.remove("omega")
     div.style.transform = "scale(.3)"
     div.style.margin = "6px"
+
+    javascriptDiv.style.inset = "35vh 40vw"
+    cDiv.style.inset = "35vh 48vw"
+    cSharpDiv.style.inset = "35vh 56vw"
 
     pythonDiv.removeEventListener("click", pythonClick)
     cDiv.removeEventListener("click", cClick)
     cSharpDiv.removeEventListener("click", cSharpClick)
     javascriptDiv.removeEventListener("click", javascriptClick)
 
-    javascriptDiv.addEventListener("click", ()=>{javascriptClickInClick(pythonDiv, "35vh 48vw")})
-    cDiv.addEventListener("click", ()=>{cClickInClick(pythonDiv, "35vh 40vw");})
+    javascriptDiv.addEventListener("click", ()=>{javascriptClickInClick(pythonDiv)})
+    cDiv.addEventListener("click", ()=>{cClickInClick(pythonDiv);})
+    cSharpDiv.addEventListener("click", ()=>{cSharpClickInClick(pythonDiv)})
 }
