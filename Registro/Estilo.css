@@ -36,7 +36,7 @@ main{
 
 picture{
     display: flex;
-    position: relative;
+    position: absolute;
     height: 12vh;
     width: 44vw;
     justify-content: center;
@@ -50,6 +50,12 @@ picture{
 h1{
     position: absolute;
     top: 20%;
+    animation: aparicion .5s ease forwards;
+}
+
+@keyframes aparicion {
+    from{opacity: 0;}
+    to{opacity: 1;}
 }
 
 picture::before{
@@ -304,4 +310,21 @@ section p{
 .omega img{
     height: 110vh;
     width: 82vh;
+}
+
+canvas{
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    z-index: 0;
+    background-color: transparent;
+    transition: background-color .3s ease;
+}
+
+video{
+    position: fixed;
+    height: 120vh;
+    width: 120vw;
+    transform: scale(0);
+    z-index: 0;
 }

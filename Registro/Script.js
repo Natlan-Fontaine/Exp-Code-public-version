@@ -9,6 +9,8 @@ let C = document.getElementById("C++")
 let body = document.querySelector("body")
 let section = document.querySelector("section")
 let main = document.querySelector("main")
+let canvas = document.querySelector("canvas")
+let video = document.querySelector("video")
 
 let pythonDiv = document.getElementById("pythonDiv")
 let javascriptDiv = document.getElementById("javascriptDiv")
@@ -20,7 +22,7 @@ let pythonObject = document.querySelector("#pythonDiv object")
 let javascriptSpan = document.querySelector("#javascriptDiv span")
 let javascriptObject = document.querySelector("#javascriptDiv object")
 
-var total = 4
+var total = 5
 var count = 0
 
 setTimeout(()=>{
@@ -34,28 +36,31 @@ python.addEventListener("load", ()=>{
     count += 1
     barra.value = Math.floor((count/total) * 100)
     output.textContent = barra.value + "%"
-    console.log("cargo python")
 })
 
 JavaScript.addEventListener("load", ()=>{
     count += 1
     barra.value = Math.floor((count/total) * 100)
     output.textContent = barra.value + "%"
-    console.log("cargo javascript")
 })
 
 cSharp.addEventListener("load", ()=>{
     count += 1
     barra.value = Math.floor((count/total) * 100)
     output.textContent = barra.value + "%"
-    console.log("cargo c#")
 })
 
 C.addEventListener("load", ()=>{
     count += 1
     barra.value = Math.floor((count/total) * 100)
     output.textContent = barra.value + "%"
-    console.log("cargo c++")
+})
+
+video.addEventListener("load", ()=>{
+    count += 1
+    barra.value = Math.floor((count/total) * 100)
+    output.textContent = barra.value + "%"
+    console.log("cargo el video")
 })
 
 window.addEventListener("load", ()=>{
@@ -64,7 +69,15 @@ window.addEventListener("load", ()=>{
         body.style.overflowX = "hidden"
         body.style.backgroundColor = "black"; 
         picture.style.opacity = 0;
-        body.style.animationName = "scrollAnimation"
+        canvas.style.backgroundColor = "rgb(255, 255, 255)"
+        canvas.style.zIndex = "50"
+        video.style.zIndex = "9"
+        video.style.transform = "scale(1)"
+        setTimeout(()=>{video.play()}, 300)
+        setTimeout(()=>{
+            body.style.animationName = "scrollAnimation"
+            canvas.style.zIndex = "0"
+            canvas.style.backgroundColor = "transparent"
         pythonDiv.style.transform = "scale(1)"; pythonDiv.style.top = "-20%"
         setTimeout(()=>{javascriptDiv.style.transform = "scale(1)"; javascriptDiv.style.top = "-20%"}, 50)
         setTimeout(()=>{cDiv.style.transform = "scale(1)"; cDiv.style.top = "-20%"}, 100)
@@ -79,6 +92,7 @@ window.addEventListener("load", ()=>{
             cDiv.addEventListener("click", cClick)
             cSharpDiv.addEventListener("click", cSharpClick)
         }, 2000)
+        }, 1500)
     }, 2000)
 })
 
