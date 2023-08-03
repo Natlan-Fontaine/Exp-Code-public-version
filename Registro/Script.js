@@ -56,7 +56,7 @@ C.addEventListener("load", ()=>{
     output.textContent = barra.value + "%"
 })
 
-video.addEventListener("load", ()=>{
+video.addEventListener("loadeddata", ()=>{
     count += 1
     barra.value = Math.floor((count/total) * 100)
     output.textContent = barra.value + "%"
@@ -67,15 +67,14 @@ window.addEventListener("load", ()=>{
     setTimeout(()=>{
         window.scrollTo({left: 0})
         body.style.overflowX = "hidden"
-        body.style.backgroundColor = "black"; 
-        picture.style.opacity = 0;
-        canvas.style.backgroundColor = "rgb(255, 255, 255)"
-        canvas.style.zIndex = "50"
-        video.style.zIndex = "9"
+        canvas.style.backgroundColor = "white"
+        setTimeout(()=>{
+            picture.style.opacity = "0"
+            body.style.backgroundColor = "black"
+            video.style.zIndex = "9"
         video.style.transform = "scale(1)"
         setTimeout(()=>{video.play()}, 300)
         setTimeout(()=>{
-            body.style.animationName = "scrollAnimation"
             canvas.style.zIndex = "0"
             canvas.style.backgroundColor = "transparent"
         pythonDiv.style.transform = "scale(1)"; pythonDiv.style.top = "-20%"
@@ -84,7 +83,7 @@ window.addEventListener("load", ()=>{
         setTimeout(()=>{cSharpDiv.style.transform = "scale(1)"; cSharpDiv.style.top = "-20%"}, 150)
         setTimeout(()=>{
             body.style.animationName = "none"; 
-            window.scrollTo({left: "470"}); 
+            window.scrollTo({left: "470", behavior: "smooth"}); 
             body.style.overflowX = "auto"
 
             pythonDiv.addEventListener("click", pythonClick)
@@ -93,6 +92,7 @@ window.addEventListener("load", ()=>{
             cSharpDiv.addEventListener("click", cSharpClick)
         }, 2000)
         }, 1500)
+        }, 600)
     }, 2000)
 })
 
