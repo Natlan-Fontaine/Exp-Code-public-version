@@ -13,18 +13,12 @@ body{
     overflow-x: auto;
     scrollbar-width: thin;
     scrollbar-color: transparent transparent;
-    animation-name: none;
-    animation: 2s ease forwards;
+    scroll-behavior: smooth;
 }
 
 body::-webkit-scrollbar{width: 0px;}
 body::-webkit-scrollbar-track{background-color: transparent;}
 body::-webkit-scrollbar-thumb{background-color: transparent;}
-
-@keyframes scrollAnimation {
-    from{transform: translateX(0%);}
-    to{transform: translateX(-35%);}
-}
 
 main{
     display: flex;
@@ -43,19 +37,16 @@ picture{
     align-items: center;
     transform: scaleY(0);
     transform-origin: top;
-    transition: transform .2s ease;
+    transition-property: transform opacity;
+    transition: .2s ease;
     z-index: 0;
 }
 
 h1{
     position: absolute;
+    opacity: 0;
     top: 20%;
-    animation: aparicion .5s ease forwards;
-}
-
-@keyframes aparicion {
-    from{opacity: 0;}
-    to{opacity: 1;}
+    transition: opacity .4s ease;
 }
 
 picture::before{

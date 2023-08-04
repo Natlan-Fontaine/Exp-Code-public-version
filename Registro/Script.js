@@ -9,8 +9,8 @@ let C = document.getElementById("C++")
 let body = document.querySelector("body")
 let section = document.querySelector("section")
 let main = document.querySelector("main")
-let canvas = document.querySelector("canvas")
 let video = document.querySelector("video")
+let h1 = document.querySelector("h1")
 
 let pythonDiv = document.getElementById("pythonDiv")
 let javascriptDiv = document.getElementById("javascriptDiv")
@@ -30,6 +30,7 @@ setTimeout(()=>{
     output.style.opacity = "1"
     p.style.transform = "scale(1)"
     p.style.opacity = "1"
+    h1.style.opacity = "1"
 }, 500)
 
 python.addEventListener("load", ()=>{
@@ -60,30 +61,31 @@ video.addEventListener("loadeddata", ()=>{
     count += 1
     barra.value = Math.floor((count/total) * 100)
     output.textContent = barra.value + "%"
-    console.log("cargo el video")
 })
 
-window.addEventListener("load", ()=>{
+document.addEventListener("DOMContentLoaded", ()=>{
     setTimeout(()=>{
-        window.scrollTo({left: 0})
         body.style.overflowX = "hidden"
-        canvas.style.backgroundColor = "white"
         setTimeout(()=>{
             picture.style.opacity = "0"
-            body.style.backgroundColor = "black"
-            video.style.zIndex = "9"
-        video.style.transform = "scale(1)"
-        setTimeout(()=>{video.play()}, 300)
+            h1.style.opacity = "0"
         setTimeout(()=>{
-            canvas.style.zIndex = "0"
-            canvas.style.backgroundColor = "transparent"
-        pythonDiv.style.transform = "scale(1)"; pythonDiv.style.top = "-20%"
-        setTimeout(()=>{javascriptDiv.style.transform = "scale(1)"; javascriptDiv.style.top = "-20%"}, 50)
-        setTimeout(()=>{cDiv.style.transform = "scale(1)"; cDiv.style.top = "-20%"}, 100)
-        setTimeout(()=>{cSharpDiv.style.transform = "scale(1)"; cSharpDiv.style.top = "-20%"}, 150)
+            body.style.backgroundColor = "black"
+            video.play()
+            video.style.zIndex = "9"
+            video.style.transform = "scale(1)"
+            pythonDiv.style.inset = "0% 20%"
+            javascriptDiv.style.inset = "0% 20%"
+            cDiv.style.inset = "0% 20%"
+            cSharpDiv.style.inset = "0% 20%"
+        }, 300)
+        setTimeout(()=>{
+        pythonDiv.style.transform = "scale(1)"; pythonDiv.style.removeProperty("inset"); pythonDiv.style.top = "-20%"
+        setTimeout(()=>{javascriptDiv.style.transform = "scale(1)"; javascriptDiv.style.removeProperty("inset"); javascriptDiv.style.top = "-20%"}, 50)
+        setTimeout(()=>{cDiv.style.transform = "scale(1)"; cDiv.style.removeProperty("inset"); cDiv.style.top = "-20%"}, 100)
+        setTimeout(()=>{cSharpDiv.style.transform = "scale(1)"; cSharpDiv.style.removeProperty("inset"); cSharpDiv.style.top = "-20%"}, 150)
         setTimeout(()=>{
             body.style.animationName = "none"; 
-            window.scrollTo({left: "470", behavior: "smooth"}); 
             body.style.overflowX = "auto"
 
             pythonDiv.addEventListener("click", pythonClick)
@@ -94,9 +96,8 @@ window.addEventListener("load", ()=>{
         }, 1500)
         }, 600)
     }, 2000)
-})
 
-let python_p = document.getElementById("python_p")
+    let python_p = document.getElementById("python_p")
 let pythonB = document.querySelector("#pythonB")
 let i = 0
 let mensaje = `Python es el lenguaje de programación perfecto para aquellos que buscan simplicidad, versatilidad y eficiencia. Con su amplia disponibilidad de bibliotecas y frameworks, podrás desarrollar aplicaciones web, analizar datos, crear inteligencias artificiales y mucho más.`
@@ -389,3 +390,5 @@ function pythonClickInClick(div){
     cDiv.addEventListener("click", ()=>{cClickInClick(pythonDiv);})
     cSharpDiv.addEventListener("click", ()=>{cSharpClickInClick(pythonDiv)})
 }
+})
+
