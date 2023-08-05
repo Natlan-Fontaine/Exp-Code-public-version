@@ -1,11 +1,11 @@
 @font-face {
     font-family: "BrunoAceSC";
-    src: url(BrunoAceSC-Regular.ttf);
+    src: url(../BrunoAceSC-Regular.ttf);
 }
 
 @font-face {
     font-family: "BrunoAce";
-    src: url(BrunoAce-Regular.ttf);
+    src: url(../BrunoAce-Regular.ttf);
 }
 
 *{
