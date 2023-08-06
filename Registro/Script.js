@@ -11,6 +11,7 @@ let section = document.querySelector("section")
 let main = document.querySelector("main")
 let video = document.querySelector("video")
 let h1 = document.querySelector("h1")
+let desicion = document.getElementById("desicion")
 
 let pythonDiv = document.getElementById("pythonDiv")
 let javascriptDiv = document.getElementById("javascriptDiv")
@@ -352,6 +353,8 @@ function pythonClick(){
 
     setTimeout(()=>{cSharpDiv.style.transform = "scale(.3)"; cSharpDiv.style.inset = "35vh 56vw"; cSharpDiv.style.margin = "6px"}, 200)
 
+    desicion.style.transform = "scaleY(1)"
+    desicion.style.animation = "neon 6s cubic-bezier(1, 0.01, 0, 1.01)"
     
     javascriptDiv.removeEventListener("mouseover", mouseoverJavascript)
     cDiv.removeEventListener("mouseover", mouseoverC)

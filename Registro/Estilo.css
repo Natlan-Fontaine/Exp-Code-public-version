@@ -333,19 +333,21 @@ video{
     width: 100vw;
     z-index: 20;
     inset: 0;
-    cursor: pointer;
+    transform: scaleY(0);
 }
   
-  #desicion h2 {
+#desicion h2 {
     font-family: "BrunoAceSC";
-    color: white;
+    color: rgb(0, 0, 0);
     transform: translateY(-250%);
     font-weight: normal;
-  }
+    filter: drop-shadow(0 0 1px rgb(255, 255, 255)) drop-shadow(0 0 3px rgb(255, 255, 255)) drop-shadow(0 0 5px rgb(255, 255, 255));
+}
   
   #desicion button {
     position: relative;
     color: rgb(255, 0, 0);
+    cursor: pointer;
     letter-spacing: 1vh;
     font-size: 3vh;
     height: 5vh;
@@ -359,7 +361,9 @@ video{
     box-shadow: 0 0 5px 2px;
     transition-property: background-color color;
     transition: .5s ease;
-  }
+}
+
+#desicion button p{position: relative; top: -72%;}
 
 #desicion button::before{
     content: "";
@@ -383,4 +387,11 @@ video{
     filter: blur(10px);
 }
   
-
+@keyframes neon {
+    0%{opacity: 0;}
+    2%{opacity: 1;}
+    4%{opacity: 0;}
+    6%{opacity: 1;}
+    8%{opacity: 0;}
+    80%{opacity: 1;}
+}
