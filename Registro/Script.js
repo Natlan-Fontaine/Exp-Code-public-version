@@ -13,6 +13,10 @@ let video = document.querySelector("video")
 let h1 = document.querySelector("h1")
 let desicion = document.getElementById("desicion")
 let lenguaje = document.getElementById("lenguaje")
+let cancelar = document.getElementById("cancel")
+let aceptar = document.getElementById("aceptar")
+let map = document.querySelector("map")
+let h2 = document.querySelector("h2")
 
 let pythonDiv = document.getElementById("pythonDiv")
 let javascriptDiv = document.getElementById("javascriptDiv")
@@ -130,6 +134,97 @@ function typed(mensaje, elemento1, elemento2, iterador = 0){
     },1)
 }
 
+function cancelPython(){
+    cancelar.style.transform = "scaleY(0)"
+    aceptar.style.transform = "scaleY(0)"
+    map.style.transform = "perspective(125px) rotateX(45deg) scaleY(0)"
+    h2.style.opacity = "0"
+    setTimeout(()=>{desicion.style.transform = "scaleY(0)"}, 250)
+
+    body.style.overflowX = "auto"
+    pythonDiv.classList.remove("omega")
+    pythonDiv.style.inset = "-20% 0"
+    
+    setTimeout(()=>{
+        javascriptDiv.style.transform = "scale(1)"
+    javascriptDiv.style.top = "-20%"
+    javascriptDiv.style.left = "35vw"
+    javascriptDiv.style.margin = ".02vw"
+    }, 150)
+
+    setTimeout(()=>{
+        cDiv.style.transform = "scale(1)"
+    cDiv.style.top = "-20%"
+    cDiv.style.left = "70vw"
+    cDiv.style.margin = ".02vw"
+    }, 200)
+
+    setTimeout(()=>{
+        cSharpDiv.style.transform = "scale(1)"
+    cSharpDiv.style.inset = "-20% 105vw"
+    cSharpDiv.style.margin = ".02vw"
+    }, 250)
+
+    javascriptDiv.addEventListener("mouseover", mouseoverJavascript)
+    cDiv.addEventListener("mouseover", mouseoverC)
+    pythonDiv.addEventListener("mouseover", mouseoverPython)
+    cSharpDiv.addEventListener("mouseover", mouseoverCsharp)
+
+    javascriptDiv.addEventListener("click", javascriptClick)
+    pythonDiv.addEventListener("click", pythonClick)
+    cDiv.addEventListener("click", cClick)
+    cSharpDiv.addEventListener("click", cSharpClick)
+
+    pythonDiv.removeEventListener("click", ()=>{pythonClickInClick(pythonDiv)})
+    javascriptDiv.removeEventListener("click", ()=>{javascriptClickInClick(pythonDiv)})
+    cDiv.removeEventListener("click", ()=>{cClickInClick(pythonDiv)})
+}
+
+function cancelJavaScript(){
+    cancelar.style.transform = "scaleY(0)"
+    aceptar.style.transform = "scaleY(0)"
+    map.style.transform = "perspective(125px) rotateX(45deg) scaleY(0)"
+    h2.style.opacity = "0"
+    setTimeout(()=>{desicion.style.transform = "scaleY(0)"}, 250)
+
+    body.style.overflowX = "auto"
+    javascriptDiv.classList.remove("omega")
+    javascriptDiv.style.inset = "-20% 35vw"
+    
+    setTimeout(()=>{
+        pythonDiv.style.transform = "scale(1)"
+    pythonDiv.style.inset = "-20% 0"
+    pythonDiv.style.margin = ".02vw"
+    }, 150)
+
+    setTimeout(()=>{
+        cDiv.style.transform = "scale(1)"
+    cDiv.style.top = "-20%"
+    cDiv.style.left = "70vw"
+    cDiv.style.margin = ".02vw"
+    }, 200)
+
+    setTimeout(()=>{
+        cSharpDiv.style.transform = "scale(1)"
+    cSharpDiv.style.inset = "-20% 105vw"
+    cSharpDiv.style.margin = ".02vw"
+    }, 250)
+
+    javascriptDiv.addEventListener("mouseover", mouseoverJavascript)
+    cDiv.addEventListener("mouseover", mouseoverC)
+    pythonDiv.addEventListener("mouseover", mouseoverPython)
+    cSharpDiv.addEventListener("mouseover", mouseoverCsharp)
+
+    javascriptDiv.addEventListener("click", javascriptClick)
+    pythonDiv.addEventListener("click", pythonClick)
+    cDiv.addEventListener("click", cClick)
+    cSharpDiv.addEventListener("click", cSharpClick)
+
+    pythonDiv.removeEventListener("click", ()=>{pythonClickInClick(javascriptDiv)})
+    javascriptDiv.removeEventListener("click", ()=>{javascriptClickInClick(javascriptDiv)})
+    cDiv.removeEventListener("click", ()=>{cClickInClick(javascriptDiv)})
+}
+
 function mouseoverPython(){typed(mensaje, python_p, pythonB, i); pythonB.textContent = "▮"}
 
 pythonDiv.addEventListener("mouseover", mouseoverPython)
@@ -188,9 +283,13 @@ function javascriptClick(){
 
     setTimeout(()=>{cSharpDiv.style.transform = "scale(.3)"; cSharpDiv.style.inset = "35vh 56vw"; cSharpDiv.style.margin = "6px"}, 200)
 
+    cancelar.style.transform = "scaleY(1)"
+    aceptar.style.transform = "scaleY(1)"
+    map.style.transform = "perspective(125px) rotateX(45deg) scaleY(1)"
+    h2.style.opacity = "1"
     lenguaje.textContent = "JavaScript"
-    desicion.style.transform = "scaleY(1)"
-    desicion.style.animation = "neon 6s cubic-bezier(1, 0.01, 0, 1.01)"
+    setTimeout(()=>{desicion.style.transform = "scaleY(1)"; desicion.style.animation = "neon 3s cubic-bezier(1, 0.01, 0, 1.01)"}, 250)
+    setTimeout(()=>{desicion.style.animation = "none"; cancelar.addEventListener("click", cancelJavaScript)}, 3000)
     
     javascriptDiv.removeEventListener("mouseover", mouseoverJavascript)
     cDiv.removeEventListener("mouseover", mouseoverC)
@@ -370,10 +469,14 @@ function pythonClick(){
 
     setTimeout(()=>{cSharpDiv.style.transform = "scale(.3)"; cSharpDiv.style.inset = "35vh 56vw"; cSharpDiv.style.margin = "6px"}, 200)
 
+    cancelar.style.transform = "scaleY(1)"
+    aceptar.style.transform = "scaleY(1)"
+    map.style.transform = "perspective(125px) rotateX(45deg) scaleY(1)"
+    h2.style.opacity = "1"
     lenguaje.textContent = "Python"
-    desicion.style.transform = "scaleY(1)"
-    desicion.style.animation = "neon 6s cubic-bezier(1, 0.01, 0, 1.01)"
-    
+    setTimeout(()=>{desicion.style.transform = "scaleY(1)"; desicion.style.animation = "neon 3s cubic-bezier(1, 0.01, 0, 1.01)"}, 250)
+    setTimeout(()=>{desicion.style.animation = "none"; cancelar.addEventListener("click", cancelPython)}, 3000)
+
     javascriptDiv.removeEventListener("mouseover", mouseoverJavascript)
     cDiv.removeEventListener("mouseover", mouseoverC)
     cSharpDiv.removeEventListener("mouseover", mouseoverCsharp)
