@@ -341,50 +341,70 @@ video{
     color: rgb(0, 0, 0);
     transform: translateY(-250%);
     font-weight: normal;
-    filter: drop-shadow(0 0 1px rgb(255, 255, 255)) drop-shadow(0 0 3px rgb(255, 255, 255)) drop-shadow(0 0 5px rgb(255, 255, 255));
+    filter: drop-shadow(0 0 1px rgb(255, 255, 255)) drop-shadow(0 0 1px rgb(255, 255, 255));
 }
   
-  #desicion button {
+#desicion button {
     position: relative;
-    color: rgb(255, 0, 0);
+    color: rgb(1, 179, 255);
     cursor: pointer;
     letter-spacing: 1vh;
     font-size: 3vh;
-    height: 5vh;
-    width: 15vw;
+    height: 8vh;
+    width: 16vw;
     top: 50%;
-    margin-left: 16vw;
-    margin-right: 16vw;
-    background-color: rgb(0, 0, 0);
-    border: 2px solid rgb(255, 0, 0);
-    border-radius: 5px;
+    margin-left: 16.5vw;
+    margin-right: 16.5vw;
+    background-color: rgb(1, 179, 255);
+    border: none;
     box-shadow: 0 0 5px 2px;
+    clip-path: polygon(0% 0%, 5% 0%, 7% 6%, 60% 6%, 62% 0%, 100% 0%, 100% 100%, 4% 100%, 0% 90%);
     transition-property: background-color color;
-    transition: .5s ease;
+    transition: .4s ease;
 }
 
-#desicion button p{position: relative; top: -72%;}
+button span{
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    inset: 0 -2%;
+    height: 7.5vh;
+    width: 15.7vw;
+    background-color: rgb(0, 0, 0);
+    clip-path: polygon(0% 0%, 4% 0%, 6% 6%, 60% 6%, 62% 0%, 100% 0%, 100% 100%, 4% 100%, 0% 90%);
+    transition: background-color .4s ease;
+}
 
-#desicion button::before{
-    content: "";
+#accept{background-color: rgb(1, 179, 255);}
+#accept p{color: rgb(0, 0, 0);}
+
+#desicion map{
     position: absolute;
-    left: 0;
-    top: 150%;
+    left: 17.5%;
+    top: 80%;
     transform: perspective(125px) rotateX(45deg);
-    height: 5vh;
-    width: 15vw;
-    background-color: red;
-    filter: blur(20px);
-    transition: filter .5s ease;
+    height: 6vh;
+    width: 16vw;
+    background-color: rgb(1, 179, 255);
+    filter: blur(10px);
+    transition: background-color .4s ease;
 }
+
+#desicion i{font-family: "BrunoAceSC"; font-style: normal;}
 
 #desicion button:hover{
     background-color: rgb(255, 0, 0);
     color: rgb(0, 0, 0);
+    border-color: rgb(255, 0, 0);
 }
 
-#desicion button:hover::before{
-    filter: blur(10px);
+#desicion button:hover span{
+    background-color: rgb(255, 0, 0);
+}
+
+#desicion button:hover + map{
+    background-color: rgb(255, 0, 0);
 }
   
 @keyframes neon {
@@ -393,5 +413,5 @@ video{
     4%{opacity: 0;}
     6%{opacity: 1;}
     8%{opacity: 0;}
-    80%{opacity: 1;}
+    60%{opacity: 1;}
 }

@@ -12,6 +12,7 @@ let main = document.querySelector("main")
 let video = document.querySelector("video")
 let h1 = document.querySelector("h1")
 let desicion = document.getElementById("desicion")
+let lenguaje = document.getElementById("lenguaje")
 
 let pythonDiv = document.getElementById("pythonDiv")
 let javascriptDiv = document.getElementById("javascriptDiv")
@@ -187,6 +188,9 @@ function javascriptClick(){
 
     setTimeout(()=>{cSharpDiv.style.transform = "scale(.3)"; cSharpDiv.style.inset = "35vh 56vw"; cSharpDiv.style.margin = "6px"}, 200)
 
+    lenguaje.textContent = "JavaScript"
+    desicion.style.transform = "scaleY(1)"
+    desicion.style.animation = "neon 6s cubic-bezier(1, 0.01, 0, 1.01)"
     
     javascriptDiv.removeEventListener("mouseover", mouseoverJavascript)
     cDiv.removeEventListener("mouseover", mouseoverC)
@@ -207,7 +211,9 @@ function javascriptClickInClick(div){
     javascriptDiv.classList.add("omega")
 
     setTimeout(()=>{javascriptDiv.style.transition = ".6s cubic-bezier(0.46, 0.01, 0.43, 0.99)"; javascriptDiv.style.inset = "-3% 15%"}, 150)
-    
+
+    typography(lenguaje, "JavaScript", 50)
+
     div.classList.remove("omega")
     div.style.transform = "scale(.3)"
     div.style.margin = "6px"
@@ -242,7 +248,10 @@ function cClick(){
 
     setTimeout(()=>{cSharpDiv.style.transform = "scale(.3)"; cSharpDiv.style.inset = "35vh 56vw"; cSharpDiv.style.margin = "6px"}, 200)
 
-    
+    lenguaje.textContent = "C++"
+    desicion.style.transform = "scaleY(1)"
+    desicion.style.animation = "neon 6s cubic-bezier(1, 0.01, 0, 1.01)"
+
     javascriptDiv.removeEventListener("mouseover", mouseoverJavascript)
     cDiv.removeEventListener("mouseover", mouseoverC)
     cSharpDiv.removeEventListener("mouseover", mouseoverCsharp)
@@ -262,7 +271,9 @@ function cClickInClick(div){
     cDiv.classList.add("omega")
 
     setTimeout(()=>{cDiv.style.transition = ".6s cubic-bezier(0.46, 0.01, 0.43, 0.99)"; cDiv.style.inset = "-3% 15%"}, 150)
-    
+
+    typography(lenguaje, "C++")
+
     div.classList.remove("omega")
     div.style.transform = "scale(.3)"
     div.style.margin = "6px"
@@ -297,6 +308,9 @@ function cSharpClick(){
 
     setTimeout(()=>{cDiv.style.transform = "scale(.3)"; cDiv.style.inset = "35vh 56vw"; cDiv.style.margin = "6px"}, 200)
 
+    lenguaje.textContent = "C#"
+    desicion.style.transform = "scaleY(1)"
+    desicion.style.animation = "neon 6s cubic-bezier(1, 0.01, 0, 1.01)"
     
     javascriptDiv.removeEventListener("mouseover", mouseoverJavascript)
     cDiv.removeEventListener("mouseover", mouseoverC)
@@ -319,6 +333,8 @@ function cSharpClickInClick(div){
 
     setTimeout(()=>{cSharpDiv.style.transition = ".6s cubic-bezier(0.46, 0.01, 0.43, 0.99)"; cSharpDiv.style.inset = "3% 16%"}, 150)
 
+    typography(lenguaje, "C#")
+
     div.classList.remove("omega")
     div.style.transform = "scale(.3)"
     div.style.margin = "6px"
@@ -336,6 +352,7 @@ function cSharpClickInClick(div){
     cDiv.addEventListener("click", ()=>{cClickInClick(cSharpDiv);})
     pythonDiv.addEventListener("click", ()=>{pythonClickInClick(cSharpDiv)})
 }
+
 function pythonClick(){
     body.style.overflowX = "hidden"
     pythonDiv.style.inset = "0% 15%"
@@ -353,6 +370,7 @@ function pythonClick(){
 
     setTimeout(()=>{cSharpDiv.style.transform = "scale(.3)"; cSharpDiv.style.inset = "35vh 56vw"; cSharpDiv.style.margin = "6px"}, 200)
 
+    lenguaje.textContent = "Python"
     desicion.style.transform = "scaleY(1)"
     desicion.style.animation = "neon 6s cubic-bezier(1, 0.01, 0, 1.01)"
     
@@ -375,7 +393,9 @@ function pythonClickInClick(div){
     pythonDiv.classList.add("omega")
 
     setTimeout(()=>{pythonDiv.style.transition = ".6s cubic-bezier(0.46, 0.01, 0.43, 0.99)"; pythonDiv.style.inset = "3% 16%"}, 150)
-    
+
+    typography(lenguaje, "Python", 50)
+
     div.classList.remove("omega")
     div.style.transform = "scale(.3)"
     div.style.margin = "6px"
@@ -394,4 +414,36 @@ function pythonClickInClick(div){
     cSharpDiv.addEventListener("click", ()=>{cSharpClickInClick(pythonDiv)})
 }
 })
+
+function typography(fraseInicial, fraseFinal, time = 100){
+    const caracts = ["!", "#", "$", "%", "/", "=", "?", "*", "{", "-", "_"];
+    let result = fraseInicial.textContent.split("");
+    var finalResult = "";
+    var otherresult = -1
+    const codificado = setInterval(()=>{
+        let random = Math.floor(Math.random() * caracts.length)
+        let cant = Math.floor(Math.random() * (fraseInicial.textContent.length))
+
+        result[cant] = caracts[random]
+        finalResult = result.join("")
+        fraseInicial.textContent = finalResult
+    }, time)
+
+    setTimeout(()=>{
+        clearInterval(codificado)
+        decodificar()
+    }, 1000)
+
+    const decodificar = ()=>{
+        const decodificado = setInterval(()=>{
+        otherresult += 1
+        result[otherresult] = fraseFinal[otherresult]
+        finalResult = result.join("")
+        fraseInicial.textContent = finalResult
+        if(finalResult == fraseFinal){
+            clearInterval(decodificado)
+        }
+        }, time)
+    }
+}
 
