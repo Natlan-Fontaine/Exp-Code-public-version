@@ -237,6 +237,15 @@ section p{
     top: 75%;
 }
 
+#oculto{
+    position: absolute;
+    height: 40vh;
+    width: 40vw;
+    background-color: rgb(0, 0, 0);
+    transform: translate(0%, 67%);
+    opacity: 0;
+}
+
 .opacidad{
     animation: opacidad .8s infinite;
 }

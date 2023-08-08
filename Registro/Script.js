@@ -17,6 +17,7 @@ let cancelar = document.getElementById("cancel")
 let aceptar = document.getElementById("aceptar")
 let map = document.querySelector("map")
 let h2 = document.querySelector("h2")
+let oculto = document.getElementById("oculto")
 
 let pythonDiv = document.getElementById("pythonDiv")
 let javascriptDiv = document.getElementById("javascriptDiv")
@@ -30,6 +31,8 @@ let javascriptObject = document.querySelector("#javascriptDiv object")
 
 var total = 5
 var count = 0
+
+body.style.overflowX = "hidden"
 
 setTimeout(()=>{
     picture.style.transform = "scaleY(1)"
@@ -71,7 +74,6 @@ video.addEventListener("loadeddata", ()=>{
 
 document.addEventListener("DOMContentLoaded", ()=>{
     setTimeout(()=>{
-        body.style.overflowX = "hidden"
         setTimeout(()=>{
             picture.style.opacity = "0"
             h1.style.opacity = "0"
@@ -105,6 +107,7 @@ cDiv.addEventListener("click", cClick)
 cSharpDiv.addEventListener("click", cSharpClick)
 
 function cancelPython(){
+    console.log("Se ejecuto la funcion cancelPython")
         cancelar.style.transform = "scaleY(0)"
         aceptar.style.transform = "scaleY(0)"
         map.style.transform = "perspective(125px) rotateX(45deg) scaleY(0)"
@@ -135,24 +138,26 @@ function cancelPython(){
             cSharpDiv.style.transform = "scale(1)"
         cSharpDiv.style.inset = "-20% 105vw"
         cSharpDiv.style.margin = ".02vw"
+        oculto.style.opacity = "0"
         }, 250)
     
         javascriptDiv.addEventListener("mouseover", mouseoverJavascript)
         cDiv.addEventListener("mouseover", mouseoverC)
         pythonDiv.addEventListener("mouseover", mouseoverPython)
         cSharpDiv.addEventListener("mouseover", mouseoverCsharp)
+
+        javascriptDiv.removeEventListener("click", ()=>{javascriptClickInClick(pythonDiv)})
+        cDiv.removeEventListener("click", ()=>{cClickInClick(pythonDiv)})
+        cSharpDiv.removeEventListener("click", ()=>{cSharpClickInClick(pythonDiv)})
     
         javascriptDiv.addEventListener("click", javascriptClick)
         pythonDiv.addEventListener("click", pythonClick)
         cDiv.addEventListener("click", cClick)
         cSharpDiv.addEventListener("click", cSharpClick)
-    
-        pythonDiv.removeEventListener("click", ()=>{pythonClickInClick(pythonDiv)})
-        javascriptDiv.removeEventListener("click", ()=>{javascriptClickInClick(pythonDiv)})
-        cDiv.removeEventListener("click", ()=>{cClickInClick(pythonDiv)})
 }
     
-    function cancelJavaScript(){
+function cancelJavaScript(){
+    console.log("Se ejecuto la funcion cancelJavaScript")
         cancelar.style.transform = "scaleY(0)"
         aceptar.style.transform = "scaleY(0)"
         map.style.transform = "perspective(125px) rotateX(45deg) scaleY(0)"
@@ -183,24 +188,27 @@ function cancelPython(){
             cSharpDiv.style.transform = "scale(1)"
         cSharpDiv.style.inset = "-20% 105vw"
         cSharpDiv.style.margin = ".02vw"
+        oculto.style.opacity = "0"
         }, 250)
     
         javascriptDiv.addEventListener("mouseover", mouseoverJavascript)
         cDiv.addEventListener("mouseover", mouseoverC)
         pythonDiv.addEventListener("mouseover", mouseoverPython)
         cSharpDiv.addEventListener("mouseover", mouseoverCsharp)
+
+        pythonDiv.removeEventListener("click", ()=>{pythonClickInClick(javascriptDiv)})
+        cDiv.removeEventListener("click", ()=>{cClickInClick(javascriptDiv)})
+        console.log("Se removio el eventListener de cDiv")
+        cSharpDiv.removeEventListener("click", ()=>{cSharpClickInClick(javascriptDiv)})
     
         javascriptDiv.addEventListener("click", javascriptClick)
         pythonDiv.addEventListener("click", pythonClick)
         cDiv.addEventListener("click", cClick)
         cSharpDiv.addEventListener("click", cSharpClick)
+}
     
-        pythonDiv.removeEventListener("click", ()=>{pythonClickInClick(javascriptDiv)})
-        javascriptDiv.removeEventListener("click", ()=>{javascriptClickInClick(javascriptDiv)})
-        cDiv.removeEventListener("click", ()=>{cClickInClick(javascriptDiv)})
-    }
-    
-    function cancelC(){
+function cancelC(){
+    console.log("Se ejecuto la funcion cancelC")
         cancelar.style.transform = "scaleY(0)"
         aceptar.style.transform = "scaleY(0)"
         map.style.transform = "perspective(125px) rotateX(45deg) scaleY(0)"
@@ -228,24 +236,75 @@ function cancelPython(){
             cSharpDiv.style.transform = "scale(1)"
         cSharpDiv.style.inset = "-20% 105vw"
         cSharpDiv.style.margin = ".02vw"
+        oculto.style.opacity = "0"
         }, 250)
     
         javascriptDiv.addEventListener("mouseover", mouseoverJavascript)
         cDiv.addEventListener("mouseover", mouseoverC)
         pythonDiv.addEventListener("mouseover", mouseoverPython)
         cSharpDiv.addEventListener("mouseover", mouseoverCsharp)
+
+        pythonDiv.removeEventListener("click", ()=>{pythonClickInClick(cDiv)})
+        javascriptDiv.removeEventListener("click", ()=>{javascriptClickInClick(cDiv)})
+        cSharpDiv.removeEventListener("click", ()=>{cSharpClickInClick(cDiv)})
     
         javascriptDiv.addEventListener("click", javascriptClick)
         pythonDiv.addEventListener("click", pythonClick)
         cDiv.addEventListener("click", cClick)
         cSharpDiv.addEventListener("click", cSharpClick)
+}
+
+function cancelCsharp(){
+    console.log("Se ejecuto la funcion cancelCsharp")
+    cancelar.style.transform = "scaleY(0)"
+        aceptar.style.transform = "scaleY(0)"
+        map.style.transform = "perspective(125px) rotateX(45deg) scaleY(0)"
+        h2.style.opacity = "0"
+        setTimeout(()=>{desicion.style.transform = "scaleY(0)"}, 250)
     
-        pythonDiv.removeEventListener("click", ()=>{pythonClickInClick(cDiv)})
-        javascriptDiv.removeEventListener("click", ()=>{javascriptClickInClick(cDiv)})
-        cDiv.removeEventListener("click", ()=>{cClickInClick(cDiv)})
-    }   
+        body.style.overflowX = "auto"
+        cSharpDiv.classList.remove("omega")
+        cSharpDiv.style.inset = "-20% 105vw"
+        
+        setTimeout(()=>{
+            javascriptDiv.removeAttribute("style")
+            javascriptDiv.style.transform = "scale(1)"
+            javascriptDiv.style.inset = "-20% 35vw"
+        javascriptDiv.style.margin = ".02vw"
+        }, 150)
     
-    function javascriptClick(){
+        setTimeout(()=>{
+            cDiv.removeAttribute("style")
+            cDiv.style.transform = "scale(1)"
+        cDiv.style.top = "-20%"
+        cDiv.style.left = "70vw"
+        cDiv.style.margin = ".02vw"
+        }, 200)
+    
+        setTimeout(()=>{
+            pythonDiv.removeAttribute("style")
+            pythonDiv.style.transform = "scale(1)"
+        pythonDiv.style.inset = "-20% 0"
+        pythonDiv.style.margin = ".02vw"
+        }, 250)
+    
+        javascriptDiv.addEventListener("mouseover", mouseoverJavascript)
+        cDiv.addEventListener("mouseover", mouseoverC)
+        pythonDiv.addEventListener("mouseover", mouseoverPython)
+        cSharpDiv.addEventListener("mouseover", mouseoverCsharp)
+
+        pythonDiv.removeEventListener("click", ()=>{pythonClickInClick(cSharpDiv)})
+        javascriptDiv.removeEventListener("click", ()=>{javascriptClickInClick(cSharpDiv)})
+        cDiv.removeEventListener("click", ()=>{cClickInClick(cSharpDiv)})
+    
+        javascriptDiv.addEventListener("click", javascriptClick)
+        pythonDiv.addEventListener("click", pythonClick)
+        cDiv.addEventListener("click", cClick)
+        cSharpDiv.addEventListener("click", cSharpClick)
+}
+    
+function javascriptClick(){
+    console.log("Se ejecuto la funcion javascriptClick")
         body.style.overflowX = "hidden"
         javascriptDiv.style.inset = "0% 15%"
         javascriptDiv.classList.add("omega")
@@ -264,10 +323,13 @@ function cancelPython(){
         cDiv.style.margin = "6px"
     }, 150)
     
-        setTimeout(()=>{cSharpDiv.removeAttribute("style"); cSharpDiv.style.transform = "scale(.3)"; cSharpDiv.style.inset = "35vh 56vw"; cSharpDiv.style.margin = "6px";}, 200)
+        setTimeout(()=>{cSharpDiv.removeAttribute("style"); cSharpDiv.style.transform = "scale(.3)"; cSharpDiv.style.inset = "35vh 56vw"; cSharpDiv.style.margin = "6px";
+        oculto.style.opacity = "1"
+    }, 200)
     
         cancelar.removeEventListener("click", cancelPython)
         cancelar.removeEventListener("click", cancelC)
+        cancelar.removeEventListener("click", cancelCsharp)
         cancelar.style.transform = "scaleY(1)"
         aceptar.style.transform = "scaleY(1)"
         map.style.transform = "perspective(125px) rotateX(45deg) scaleY(1)"
@@ -278,19 +340,20 @@ function cancelPython(){
     
         javascriptDiv.removeEventListener("mouseover", mouseoverJavascript)
         cDiv.removeEventListener("mouseover", mouseoverC)
-        cSharpDiv.removeEventListener("mouseover", mouseoverCsharp)
         pythonDiv.removeEventListener("mouseover", mouseoverPython)
-    
+        cSharpDiv.removeEventListener("mouseover", mouseoverCsharp)
+
         javascriptDiv.removeEventListener("click", javascriptClick)
+        pythonDiv.removeEventListener("click", pythonClick)
         cDiv.removeEventListener("click", cClick)
         cSharpDiv.removeEventListener("click", cSharpClick)
-    
-        javascriptDiv.addEventListener("click", ()=>{javascriptClickInClick(javascriptDiv)})
+
+        pythonDiv.addEventListener("click", ()=>{pythonClickInClick(javascriptDiv)})
         cDiv.addEventListener("click", ()=>{cClickInClick(javascriptDiv);})
         cSharpDiv.addEventListener("click", ()=>{cSharpClickInClick(javascriptDiv)})
-    }
+}
     
-    function javascriptClickInClick(div){
+function javascriptClickInClick(div){
         javascriptDiv.style.transform = "scale(1)"
         javascriptDiv.classList.add("omega")
     
@@ -313,9 +376,10 @@ function cancelPython(){
         pythonDiv.addEventListener("click", ()=>{pythonClickInClick(javascriptDiv)})
         cDiv.addEventListener("click", ()=>{cClickInClick(javascriptDiv)})
         cSharpDiv.addEventListener("click", ()=>{cSharpClickInClick(javascriptDiv)})
-    }
+}
     
-    function cClick(){
+function cClick(){
+    console.log("Se ejecuto la funcion cClick")
         body.style.overflowX = "hidden"
         cDiv.style.inset = "0% 15%"
         cDiv.classList.add("omega")
@@ -334,10 +398,13 @@ function cancelPython(){
         javascriptDiv.style.margin = "6px"
     }, 150)
     
-        setTimeout(()=>{cSharpDiv.removeAttribute("style"); cSharpDiv.style.transform = "scale(.3)"; cSharpDiv.style.inset = "35vh 56vw"; cSharpDiv.style.margin = "6px";}, 200)
+        setTimeout(()=>{cSharpDiv.removeAttribute("style"); cSharpDiv.style.transform = "scale(.3)"; cSharpDiv.style.inset = "35vh 56vw"; cSharpDiv.style.margin = "6px";
+        oculto.style.opacity = "1"
+    }, 200)
     
         cancelar.removeEventListener("click", cancelJavaScript)
         cancelar.removeEventListener("click", cancelPython)
+        cancelar.removeEventListener("click", cancelCsharp)
         cancelar.style.transform = "scaleY(1)"
         aceptar.style.transform = "scaleY(1)"
         map.style.transform = "perspective(125px) rotateX(45deg) scaleY(1)"
@@ -348,19 +415,21 @@ function cancelPython(){
     
         javascriptDiv.removeEventListener("mouseover", mouseoverJavascript)
         cDiv.removeEventListener("mouseover", mouseoverC)
-        cSharpDiv.removeEventListener("mouseover", mouseoverCsharp)
         pythonDiv.removeEventListener("mouseover", mouseoverPython)
+        cSharpDiv.removeEventListener("mouseover", mouseoverCsharp)
     
         javascriptDiv.removeEventListener("click", javascriptClick)
+        pythonDiv.removeEventListener("click", pythonClick)
         cDiv.removeEventListener("click", cClick)
         cSharpDiv.removeEventListener("click", cSharpClick)
-    
+
         javascriptDiv.addEventListener("click", ()=>{javascriptClickInClick(cDiv)})
-        cDiv.addEventListener("click", ()=>{cClickInClick(cDiv);})
+        pythonDiv.addEventListener("click", ()=>{pythonClickInClick(cDiv)})
         cSharpDiv.addEventListener("click", ()=>{cSharpClickInClick(cDiv)})
-    }
+}
     
-    function cClickInClick(div){
+function cClickInClick(div){
+    console.log("se ejecuto la funcion cClickInClick")
         cDiv.style.transform = "scale(1)"
         cDiv.classList.add("omega")
     
@@ -383,9 +452,9 @@ function cancelPython(){
         pythonDiv.addEventListener("click", ()=>{pythonClickInClick(cDiv);})
         javascriptDiv.addEventListener("click", ()=>{javascriptClickInClick(cDiv)})
         cSharpDiv.addEventListener("click", ()=>{cSharpClickInClick(cDiv)})
-    }
+}
     
-    function cSharpClick(){
+function cSharpClick(){
         body.style.overflowX = "hidden"
         cSharpDiv.classList.add("omega")
     
@@ -405,13 +474,16 @@ function cancelPython(){
     
         setTimeout(()=>{cDiv.removeAttribute("style"); cDiv.style.transform = "scale(.3)"; cDiv.style.inset = "35vh 56vw"; cDiv.style.margin = "6px"}, 200)
     
+        cancelar.removeEventListener("click", cancelPython)
+        cancelar.removeEventListener("click", cancelJavaScript)
+        cancelar.removeEventListener("click", cancelC)
         cancelar.style.transform = "scaleY(1)"
         aceptar.style.transform = "scaleY(1)"
         map.style.transform = "perspective(125px) rotateX(45deg) scaleY(1)"
         h2.style.opacity = "1"
         lenguaje.textContent = "C#"
         setTimeout(()=>{desicion.style.transform = "scaleY(1)"; desicion.style.animation = "neon 3s cubic-bezier(1, 0.01, 0, 1.01)"}, 250)
-        setTimeout(()=>{desicion.style.animation = "none"; cancelar.addEventListener("click", cancelJavaScript)}, 3000)
+        setTimeout(()=>{desicion.style.animation = "none"; cancelar.addEventListener("click", cancelCsharp)}, 3000)
         
         javascriptDiv.removeEventListener("mouseover", mouseoverJavascript)
         cDiv.removeEventListener("mouseover", mouseoverC)
@@ -422,11 +494,11 @@ function cancelPython(){
         pythonDiv.removeEventListener("click", pythonClick)
         cDiv.removeEventListener("click", cClick)
         cSharpDiv.removeEventListener("click", cSharpClick)
-    
+
         pythonDiv.addEventListener("click", ()=>{pythonClickInClick(cSharpDiv)})
         javascriptDiv.addEventListener("click", ()=>{javascriptClickInClick(cSharpDiv)})
         cDiv.addEventListener("click", ()=>{cClickInClick(cSharpDiv)})
-    }
+}
     
     function cSharpClickInClick(div){
         cSharpDiv.style.transform = "scale(1)"
@@ -474,10 +546,13 @@ function cancelPython(){
         cDiv.style.margin = "6px"
     }, 150)
     
-        setTimeout(()=>{cSharpDiv.removeAttribute("style"); cSharpDiv.style.transform = "scale(.3)"; cSharpDiv.style.inset = "35vh 56vw"; cSharpDiv.style.margin = "6px";}, 200)
+        setTimeout(()=>{cSharpDiv.removeAttribute("style"); cSharpDiv.style.transform = "scale(.3)"; cSharpDiv.style.inset = "35vh 56vw"; cSharpDiv.style.margin = "6px";
+        oculto.style.opacity = "1"
+    }, 200)
     
         cancelar.removeEventListener("click", cancelJavaScript)
         cancelar.removeEventListener("click", cancelC)
+        cancelar.removeEventListener("click", cancelCsharp)
         cancelar.style.transform = "scaleY(1)"
         aceptar.style.transform = "scaleY(1)"
         map.style.transform = "perspective(125px) rotateX(45deg) scaleY(1)"
@@ -494,7 +569,7 @@ function cancelPython(){
         javascriptDiv.removeEventListener("click", javascriptClick)
         cDiv.removeEventListener("click", cClick)
         cSharpDiv.removeEventListener("click", cSharpClick)
-    
+
         javascriptDiv.addEventListener("click", ()=>{javascriptClickInClick(pythonDiv)})
         cDiv.addEventListener("click", ()=>{cClickInClick(pythonDiv);})
         cSharpDiv.addEventListener("click", ()=>{cSharpClickInClick(pythonDiv)})
@@ -544,10 +619,10 @@ function cancelPython(){
     let cSharpB = document.getElementById("c#B")
     let mensajeSharp = `C# es un lenguaje de programación moderno y versátil que permite desarrollar aplicaciones de Windows y aplicaciones web utilizando el poderoso ecosistema .NET. Con su enfoque en la facilidad de uso y la productividad, junto con una comunidad activa y un sólido soporte, C# es una excelente elección para aquellos que desean crear aplicaciones robustas y de alto rendimiento en el entorno de Microsoft.`
     
+
     function mouseoverPython(){typed(mensaje, python_p, pythonB, i); pythonB.textContent = "▮"}
     function mouseoverJavascript(){typed(mensajeJ, javascript_p, javascriptB, i); javascriptB.textContent = "▮"}
     function mouseoverC(){typed(mensajeC, cP, cB, i); cB.textContent = "▮"}
-    function mouseoverCsharp(){typed(mensajeSharp, cSharpP, cSharpB, i); cSharpB.textContent = "▮"}
     
     pythonDiv.addEventListener("mouseover", mouseoverPython)
     
@@ -573,7 +648,20 @@ function cancelPython(){
         cB.textContent = ""
     })
     
-    cSharpDiv.addEventListener("mouseover", mouseoverCsharp)
+    cSharpDiv.addEventListener("mouseover", ()=>{
+        let iterador = 0
+        cSharpB.textContent = "▮"
+        intervalo = setInterval(()=>{
+            if (cSharpP.textContent == mensajeSharp){
+                cSharpB.classList.add("opacidad")
+                clearInterval(intervalo)
+            }
+            else{
+                cSharpP.textContent += mensajeSharp[iterador]
+                iterador++
+            }
+        },1)
+    })
     
     cSharpDiv.addEventListener("mouseout", ()=>{
         clearInterval(intervalo)
@@ -625,5 +713,6 @@ function cancelPython(){
             }
         },1)
     }
+    
 })
 
