@@ -15,10 +15,10 @@
 body{
     background-color: rgb(0, 255, 255);
     overflow-y: hidden;
-    overflow-x: auto;
+    overflow-x: hidden;
     scrollbar-width: thin;
     scrollbar-color: transparent transparent;
-    scroll-behavior: smooth;
+    transition: background-color 1s 1s;
 }
 
 body::-webkit-scrollbar{width: 0px;}
@@ -43,7 +43,7 @@ picture{
     transform: scaleY(0);
     transform-origin: top;
     transition-property: transform opacity;
-    transition: .2s ease;
+    transition: .4s ease;
     z-index: 0;
 }
 
@@ -51,7 +51,7 @@ h1{
     position: absolute;
     opacity: 0;
     top: 20%;
-    transition: opacity .4s ease;
+    transition: opacity 1s ease;
 }
 
 picture::before{
@@ -146,6 +146,7 @@ output{
     bottom: 15%;
     opacity: 0;
     transition: opacity 1s ease;
+    transition-delay: .4s;
 }
 
 picture p{
@@ -154,15 +155,25 @@ picture p{
     top: -8%;
     opacity: 0;
     transform: scale(.8);
-    transition-property: transform opacity;
-    transition:  .5s ease;
+    animation: pAnimation 1s ease .4s forwards;
+}
+
+@keyframes pAnimation {
+    from{
+        opacity: 0;
+        transform: scale(.8);
+    }
+    to{
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 section{
     display: flex;
     position: absolute;
     top: 0;
-    left: 15%;
+    left: 0;
     height: 100vh;
     width: 140vw;
     justify-content: space-around;
@@ -200,18 +211,18 @@ section div{
     justify-content: center;
     height: 100vh;
     width: 50vh;
-    inset: 50% 0;
     transform: scale(0);
     margin: .02vw;
-    z-index: 11;
-    transition-property: inset transform;
+    z-index: 12;
+    transition-property: top left transform;
     transition: .6s cubic-bezier(0.46, 0.01, 0.43, 0.99);
     cursor: pointer;
 }
 
-#javascriptDiv{left: 35vw;}
-#cDiv{left: 70vw;}
-#cSharpDiv{left: 105vw;}
+#pythonDiv{z-index: 15;}
+#javascriptDiv{z-index: 14; transition-delay: .1s;}
+#cDiv{z-index: 13; transition-delay: .2s;}
+#cSharpDiv{transition-delay: .3s;}
 
 span{
     display: flex;
@@ -237,6 +248,16 @@ section p{
     top: 75%;
 }
 
+section div a{
+    position: absolute;
+    height: 30vh;
+    width: 28vw;
+    background-color: rgb(0, 0, 0);
+    transform: translate(0%, 140%);
+    opacity: 0;
+    z-index: 10;
+}
+
 #oculto{
     position: absolute;
     height: 40vh;
@@ -256,66 +277,35 @@ section p{
     100%{opacity: 0;}
 }
 
-.superPythonDiv{
-    display: flex;
-    position: absolute;
-    align-items: center;
-    justify-content: center;
-    transform: translate(-1%, 5%);
-    z-index: 12;
-    transition: transform 2s cubic-bezier(0.46, 0.01, 0.43, 0.99);
-}
-
-.superPythonDiv span{
-    display: flex;
-    position: absolute;
-    height: 55vh;
-    width: 45vh;
-    background-color: rgb(1, 179, 255);
-    clip-path: polygon(5% 4%, 95% 4%, 95% 82%, 77% 96%, 5% 96%, 5% 94%, 5% 94%, 5% 20%);
-    transition-property: width height;
-    transition: 1s ease, clip-path .1s ease;
-}
-
-.superPythonDiv img{
-    height: 50vh;
-    width: 40vh;
-    inset: 0 0;
-    position: relative;
-    z-index: 12;
-    transition-property: height width top left;
-    transition: 1s ease;
-}
-
-.superPythonDiv object{
-    height: 50vh;
-    width: 40vh;
-    position: absolute;
-    background-color: rgb(0, 0, 0);
-    clip-path: polygon(0 0, 100% 0, 100% 85%, 80% 100%, 0 100%);
-    z-index: 11;
-    transition-property: width height;
-    transition: 1s ease;
+.tiny{
+    transform: scale(.3);
+    top: 35%;
 }
 
 .omega {
-    transition: inset 1s ease;
-    z-index: 10;
+    transition-property: height width;
+    transition: 1s ease;
+    z-index: 8 !important;
+    transform: scale(1);
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
 }
 
 .omega span{
-    height: 155vh;
-    width: 130vw;
+    height: 100vh;
+    width: 100vw;
 }
 
 .omega object{
-    height: 144vh;
-    width: 120vw;
+    height: 100vh;
+    width: 100vw;
 }
 
 .omega img{
-    height: 110vh;
-    width: 82vh;
+    height: 100vh;
+    width: 70vh;
 }
 
 canvas{
@@ -343,6 +333,7 @@ video{
     z-index: 20;
     inset: 0;
     transform: scaleY(0);
+    transition: opacity 15s ease;
 }
   
 #desicion h2 {
@@ -387,7 +378,8 @@ button span{
     transition: background-color .4s ease;
 }
 
-#accept{background-color: rgb(1, 179, 255);}
+#accept{background-color: rgb(1, 179, 255);
+}
 #accept p{color: rgb(0, 0, 0);}
 
 #desicion map{
