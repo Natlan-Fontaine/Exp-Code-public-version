@@ -10,6 +10,7 @@ let javascriptImg = document.getElementById("JavaScript")
 let cImg = document.getElementById("C++")
 let cSharpImg = document.getElementById("C#")
 let video = document.querySelector("video")
+let section = document.querySelector("section")
 
 let pythonDiv = document.getElementById("pythonDiv")
 let javascriptDiv = document.getElementById("javascriptDiv")
@@ -59,6 +60,16 @@ let changes
 
 var div
 var posicion
+
+let course
+
+function accept(){
+    desicionDiv.style.animation = "none"
+    section.style.transform = "scaleY(.01)"
+    setTimeout(()=>{section.style.transform = "scaleY(0.01) scaleX(0)"
+    desicionDiv.style.animation = "neon 3s cubic-bezier(1, 0.01, 0, 1.01) reverse forwards"}, 200)
+    setTimeout(()=>{desicionDiv.style.scale = "0"}, 3200)
+}
 function typed(mensaje, parrafo, etiquetaB) {
     etiquetaB.textContent = "▮";
     intervalo = setInterval(() => {
@@ -118,6 +129,9 @@ function pythonClick(){
     aceptar.style.transform = "scale(1)"
     luces.style.transform = "perspective(125px) rotateX(45deg) scale(1)"
     cancelar.addEventListener("click", cancelPython)
+    aceptar.addEventListener("click", accept)
+    
+    course = "python"
 }
 
 function cancelPython(){
@@ -422,6 +436,7 @@ function cClickInClick(){
 
     pythonDiv.removeEventListener("click", pythonClick)
     javascriptDiv.removeEventListener("click", javascriptClick)
+    cSharpDiv.removeEventListener("click", cSharpClick)
 
     cancelar.addEventListener("click", cancelC)
     pythonDiv.addEventListener("click", pythonClickInClick)
@@ -430,6 +445,7 @@ function cClickInClick(){
 }
 
 function cSharpClick(){
+    console.log("se ejecuto la funcion")
     window.scrollTo({left: "0", behavior: "smooth"})
     cSharpDiv.classList.add("omega")
     cSharpDiv.children[0].style.opacity = "1"
@@ -535,7 +551,7 @@ function cSharpClickInClik(){
     cancelar.removeEventListener("click", cancelC)
     cancelar.removeEventListener("click", cancelJavaScript)
 
-    pythonDiv.removeEventListener("click", pythonClickInClick)
+    pythonDiv.removeEventListener("click", pythonClick)
     javascriptDiv.removeEventListener("click", javascriptClick)
     cDiv.removeEventListener("click", cClick)
 
@@ -616,6 +632,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     pythonDiv.addEventListener("click", pythonClick)
     javascriptDiv.addEventListener("click", javascriptClick)
     cDiv.addEventListener("click", cClick)
+    cSharpDiv.addEventListener("click", cSharpClick)
 })
 
 
