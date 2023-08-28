@@ -64,11 +64,11 @@ var posicion
 let course
 
 function accept(){
-    desicionDiv.style.animation = "none"
     section.style.transform = "scaleY(.01)"
-    setTimeout(()=>{section.style.transform = "scaleY(0.01) scaleX(0)"
-    desicionDiv.style.animation = "neon 3s cubic-bezier(1, 0.01, 0, 1.01) reverse forwards"}, 200)
-    setTimeout(()=>{desicionDiv.style.scale = "0"}, 3200)
+    desicionDiv.style.animation = "neon 3s cubic-bezier(1, 0.01, 0, 1.01) reverse forwards"
+    setTimeout(()=>{
+    section.style.transform = "scaleY(0.01) scaleX(0)"}, 200)
+    setTimeout(()=>{desicionDiv.style.scale = "0"}, 3000)
 }
 function typed(mensaje, parrafo, etiquetaB) {
     etiquetaB.textContent = "▮";

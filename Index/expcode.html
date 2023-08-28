@@ -9,8 +9,12 @@
     <link rel="stylesheet" href="expcode.css">
 </head>
 <body>
+    <div id="textarea">
+        <p id="primer"><br></p><b>▮</b>
+        <textarea></textarea>
+    </div>
     <header>
-        <img src="Logo.png" alt="Logo de Exp-Code">
+        <img alt="Logo de Exp-Code" id="logoImg">
         <nav>
             <a>Idioma del contenido</a>
             <div id="input">
@@ -165,7 +169,7 @@
             <span id="rojo">
                 <span id="fondito">
                     <p>¡LA PAGINA YA ESTA EN ESPAÑOL!</p>
-                    <img src="fondo_alert.png" alt="atribuciones a https://es.vecteezy.com/miembros/dgraphic_studio">
+                    <img id="fondoAlert" alt="atribuciones a https://es.vecteezy.com/miembros/dgraphic_studio">
                 </span>
             </span>
         </section>
@@ -270,5 +274,99 @@
         </div>
     </main>
     <script src="expcode.js"></script>
+    <script>
+        let p1 = document.getElementById("primer");
+        let divTextarea = document.getElementById("textarea")
+        let textarea = document.querySelector("textarea")
+        let img = document.getElementById("logoImg")
+        let img2 = document.getElementById("fondoAlert")
+
+        function typed(mensaje, etiqueta, time = 30) {
+            let i = 0;
+            const intervalo = setInterval(() => {
+                if (i < mensaje.length) {
+                    etiqueta.innerHTML += mensaje[i];
+                    i++;
+                } else {
+                    etiqueta.innerHTML += "<br>"
+                    clearInterval(intervalo);
+                }
+            }, time); // Cambiado el intervalo a 50 ms para una animación más suave
+        }
+
+        function typed2(mensaje, etiqueta, time){
+            let i = 0;
+            let palabras = mensaje.split(" ")
+            let grupos = []
+
+            for(let b = 0; b < palabras.length; b+=2){
+                if(palabras[b + 2]){
+                    grupos.push(palabras[b] + " " + palabras[b + 1])
+                }
+                else{
+                    grupos.push(palabras[b])
+                }
+            }
+
+
+            const intervalo = setInterval(() => {
+                if (i < grupos.length) {
+                    etiqueta.innerHTML += grupos[i];
+                    etiqueta.innerHTML += " "
+                    i++;
+                } else {
+                    etiqueta.innerHTML += "<br>"
+                    clearInterval(intervalo);
+                }
+            }, time);
+        }
+
+        async function loading() {
+            await typed("Loading HTML, CSS and JavaScript", p1);
+        }
+
+        loading();
+
+        img.addEventListener("load",()=>{
+            console.log("la imagen cargo")
+            setTimeout(()=>{
+                typed(" Exp-code image loaded", p1)
+            }, 1000)
+        })
+
+        img.src = "Logo.png"
+
+        img2.addEventListener("load", ()=>{
+            setTimeout(()=>{
+                typed(" Alert image loaded", p1)
+            }, 2000)
+        })
+
+        img2.src = "fondo_alert.png"
+
+        document.addEventListener("DOMContentLoaded", ()=>{
+            setTimeout(()=>{
+                let area = document.querySelector("#textarea b")
+                divTextarea.removeChild(area)
+                typed2(`The loading of a web page is a multifaceted process that takes place in seconds but involves an intricate choreography of technologies and resources. When we enter a URL in our browser and hit "Enter," a virtual journey begins that culminates in the visual representation of the page on the screen. Behind this apparent simplicity, there is a complex dance of protocols, requests, data transfers, and rendering that make the experience we take for granted possible.
+
+The process starts with domain resolution, where the URL is translated into an IP address through the Domain Name System (DNS). Once the browser has the IP address, it establishes a connection with the web server hosting the site. The request travels through the Hypertext Transfer Protocol (HTTP) or its secure version (HTTPS), where the necessary resources to build the page are requested.
+
+The server responds by delivering HTML, CSS, JavaScript, and other resources. The HTML provides the basic structure and content, while the CSS defines the visual presentation and layout. JavaScript adds interactivity and dynamism. These files can come from various sources, such as the same server, local caches, or Content Delivery Network (CDN) services, which speed up loading by distributing files through servers close to the user.
+
+Once the resources are received, the browser starts rendering the page. This involves parsing the HTML to build the Document Object Model (DOM), an in-memory representation of the page's structure. Then, the CSS is applied to create the box model, which defines how elements are displayed. JavaScript can modify both the DOM and CSS, providing interactivity and real-time updates.
+
+The loading of images and other multimedia elements is another critical step. Images are downloaded and rendered as they come into the user's viewport, thanks to the "lazy loading" technique, which optimizes loading speed by only loading what is necessary.
+
+The process culminates in the complete rendering of the page, allowing the user to interact with it. It's important to note that there are many factors in this process that can affect loading speed, such as the quality of the internet connection, server performance, and code efficiency. Therefore, web developers strive to optimize every aspect, from resource compression to implementing caching techniques.
+
+In summary, the loading of a web page is a technological symphony in which protocols, servers, and browsers work in harmony to transform a sequence of data into a visually rich experience. This digital choreography underlies our daily interaction with the web and reminds us of the complexity behind the apparent simplicity of a site that unfolds on the screen in a matter of seconds.`, textarea, 1)
+
+setTimeout(()=>{
+                divTextarea.style.animation = "desplazar .2s forwards"
+            }, 500)
+            }, 3000)
+        })
+    </script>
 </body>
 </html>
