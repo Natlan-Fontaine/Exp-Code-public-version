@@ -29,17 +29,22 @@ body{
 
 #textarea p{
     display: inline;
+    position: relative;
     font-size: 3vh;
     color: rgb(1, 179, 255);
 }
 
-textarea{
-    height: 100vh;
-    width: 102vw;
-    font-size: 3vh;
-    color: rgb(1, 179, 255);
+video{
+    position: absolute;
+    height: 110vh;
+    width: 110vw;
+    opacity: 0;
+    top: -5%;
+    left: -5%;
+    margin: 0;
     background-color: rgb(0, 0, 0);
-    border: none;
+    z-index: 31;
+    transition: opacity 1s ease, z-index 1s ease 1.1s;
 }
 
 @keyframes desplazar {
@@ -47,6 +52,15 @@ textarea{
     33%{top: -8%;}
     66%{top: -11%;}
     100%{top: -15%;}
+}
+
+#test{
+    display: inline-block;
+    position: absolute;
+    left: -37%;
+    height: 100%;
+    transform: scale(.5);
+    z-index: 31;
 }
 
 .background {

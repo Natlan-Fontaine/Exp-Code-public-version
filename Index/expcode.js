@@ -14,7 +14,6 @@ let cuenta = document.getElementById("cuenta")
 
 let alert = document.querySelector("section")
 let alertadd = document.querySelector("section p")
-
 function typography(fraseInicial, fraseFinal, time = 100){
     const caracts = ["!", "#", "$", "%", "/", "=", "?", "*", "{", "-", "_"];
     let result = fraseInicial.textContent.split("");
@@ -98,8 +97,8 @@ li2.addEventListener("click", ()=>{
     }
 })
 
-    let boton1 = document.getElementById("boton1")
-    let div1 = document.getElementById("azul")
+let boton1 = document.getElementById("boton1")
+let div1 = document.getElementById("azul")
 
     boton1.addEventListener("click", () => {
         div1.style.zIndex = 30;
