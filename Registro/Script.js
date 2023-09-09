@@ -594,10 +594,16 @@ function typography(fraseInicial, fraseFinal, time = 100){
 }
 
 pythonImg.addEventListener("load", elementoCarga)
+pythonImg.src = "Python.png"
 javascriptImg.addEventListener("load", elementoCarga)
+javascriptImg.src = "JavaScript.png"
 cImg.addEventListener("load", elementoCarga)
+cImg.src = "C++.png"
 cSharpImg.addEventListener("load", elementoCarga)
-video.addEventListener("load", elementoCarga)
+cSharpImg.src = "Csharp (2).png"
+video.addEventListener("loadeddata", elementoCarga)
+video.children[0].src = "robot0001-0030.mp4"
+video.load()
 
 document.addEventListener("DOMContentLoaded", ()=>{
     barraCarga.value = 100
